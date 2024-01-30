@@ -14,4 +14,4 @@ Here is a general syntax:
 
 sudo (command e.g apt upgrade)
 
-![sudo command image](Image_folder/Sudo1.png)
+![sudo command image](image-folder/Sudo1.png)
