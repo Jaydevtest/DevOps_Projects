@@ -15,3 +15,28 @@ Here is a general syntax:
 sudo (command e.g apt upgrade)
 
 ![sudo command image](image-folder/Sudo1.png)
+
+You can also add options such as:
+
+-k or -reset = timestamp invalidates the timestamp file
+
+-g or -group = group runs command as a specified group name or ID
+
+-h or -host = host runs commands on the host
+
+### 2. Pwd Command: 
+
+Use the pwd command to find the path of your current/present working directory. Simply entering pwd will return the full current path- a path of all the directories that starts with a foward slash(/). For example, /home/ubuntu.
+
+The pwd command uses the following syntax:
+
+pwd (options)
+
+It has two acceptable options: 
+
+-L or logical prints environment variable content, including symbolic links.
+
+-P or physical prints the actual path of the current directory.
+
+pwd
+
