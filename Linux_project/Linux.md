@@ -13,3 +13,5 @@ If you try to run sudo in the command line without authenticating yourself, the 
 Here is a general syntax:
 
 sudo (command e.g apt upgrade)
+
+![sudo command image](Image_folder/Sudo1.png)
