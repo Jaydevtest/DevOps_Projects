@@ -40,3 +40,5 @@ It has two acceptable options:
 
 pwd
 
+![sudo command image](image-folder/Sudo1.png)
+
