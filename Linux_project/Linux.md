@@ -42,7 +42,7 @@ pwd
 
 ![pwd command image](image-folder/pwd.png)
 
-### 2. cd command:
+### 3. cd command:
 
 To navigate through the Linux files and directories, use the cd command. Depending on your current working directory, it requires either the full path or the directory name.
 
@@ -72,6 +72,159 @@ cd- moves to your previous directory.
 
 ### 4. ls command:
 The ls command lists files and directories within a system. Running it without a flag or parameter will show the current working directory's content.
+
+![ls command image](image-folder/ls.png)
+
+Here are some options you can use with the ls command:
+
+ls -R
+
+lists all the files in the subdirectories
+
+![ls -R command image](image-folder/ls1.png)
+
+ls -a
+
+shows hidden files in addition to the visible ones
+
+![ls -a command image](image-folder/ls2.png)
+
+ls -lh
+
+shows the file sizes in easily readable formats, such as KB, MB, GB, and TB.
+
+![ls -lh command image](image-folder/ls3.png)
+
+### 5. cat command:
+
+Concatenate, or cat is one of the most frequently used Linux commands. It lists, combines, and writes file content to the standard output. To run the cat command, type cat followed by the file name and its extension. For instance:
+
+cat DevOps
+
+![cat command image](image-folder/cat.png)
+
+Here are other ways to use the cat command:
+
+cat filename1.txt filename2.txt > filename3.txt
+
+Merges filename1.txt and filename2.txt and stores output in filename3.txt
+
+![cat command image](image-folder/cat1.png)
+
+tac filename.txt
+
+displays content in reverse order
+
+![tac command image](image-folder/tac.png)
+
+### 6. cp command
+
+Use the cp command to copy files or directories and their content. Take a look at the following cases.
+
+To copy one file from the current directory to another, enter cp followed by the file name and the destination directory. For example:
+
+cp DevOps /home/jayrock/Desktop
+
+![copy command image](image-folder/copy.png)
+
+To copy the contents of a file to a new file in the same directory, enter cp followed by the source file and the destination file as shown below:
+
+cp filename.txt filename2.txt
+
+To copy an entire directory, pass the -R flag before typing the source directory, followed by the destination directory: 
+
+cp -R /home/username/Documents /home/username/Documents_backup
+
+### 7. mv command:
+
+The primary use of the mv command is to move and rename files and directories. Additionally, it doesn't produce an output upon execution.
+
+Simply type mv followed by the filename and destination directory. for example you want to move to the /home/jayrock/Documents directory
+
+mv DevOps /home/jayrock/Documents
+
+![mv command image](image-folder/mv.png)
+
+You can also use mv to rename a file:
+
+mv DevOps DevOps.txt
+
+![mv command image](image-folder/mv1.png)
+
+### 8. mkdir command:
+
+Use the mkdir command to create one or multiple directories at once and set permission for each of them. The user executing this command must have the privileges to make a new folder at the parent directory, or they may receive permission denied error/
+
+Here are the basic syntax:
+
+mkdir {option} directory_name
+
+For example, you want to create a directory called Blues:
+
+mkdir Blues
+
+![mkdir command image](image-folder/mkdir.png)
+
+To create a new directory called Songs inside Blues, use this command
+
+mkdir Blues/Songs
+
+![mkdir command image](image-folder/mkdir1.png)
+
+The mkdir accepts options such as :
+
+-p or -parent creates a directory between two existing folders. For example, mkdir -p Music/2020/Songs will make the new "2020" directory.
+
+![mkdir command image](image-folder/mkdir2.png)
+
+To create a directory with fill read, write, and execute permissions for all users, enter mkdir -m777 directory_name.
+
+-v prints a message for each directory created.
+
+### 9. rmdir command
+
+To permanently delete an empty directory, use the rmdir command. Remember that the user running this command should have sudo privileges in the parent directory.
+
+For example, you eant to remove an empty subdirectory names Songs from the Blues folder
+
+rmdir -p Blues/Songs
+
+![rmdir command image](image-folder/rmdir.png)
+
+### 10. rm command
+
+The rm command is used to delete files within a directory. Makem sure the user performing this command has the write permissions.
+
+Remember the directory's location as this will remove the file(s) and you can't undo it.
+
+Here is a general syntax
+
+rm filename
+
+![rm command image](image-folder/rm.png)
+
+To remove multiple files enter the following command:
+
+rm filename1 filename2 filename
+
+Here are some acceptable options you can add:
+
+-i prompt system confirmation before deleting a file,
+
+-f allows the system to remove without confirmation.
+
+-r deletes files and directories recursively.
+
+### 11. touch command:
+
+The touch command allows you to create and empty file or generate and modify a timestamp in the Linux command line.
+
+For example, enter the following command to create an HTML file named Web in the Documents directory:
+
+touch web.HTML
+
+![touch command image](image-folder/touch1.png)
+
 
 
 
