@@ -125,7 +125,7 @@ To copy one file from the current directory to another, enter cp followed by the
 
 cp DevOps /home/jayrock/Desktop
 
-![copy command image](image-folder/copy.png)
+![cp command image](image-folder/cp.png)
 
 To copy the contents of a file to a new file in the same directory, enter cp followed by the source file and the destination file as shown below:
 
@@ -225,6 +225,75 @@ touch web.HTML
 
 ![touch command image](image-folder/touch1.png)
 
+### 12. locate command:
+
+The locate command can find a file in the database system.
+
+Moreover, adding the -i argument will turn off case sensitivity, so you can search for a file even if you don't remember the exact name.
+
+To look for the content that contains two or more words use an asterisk (*). For example:
+
+locate -i devops
+
+![locate command image](image-folder/locate.png)
+
+### 13. find command:
+
+Use the find command to search for files within a specific directory and perform subsequent operations. Here's the general syntax:
+
+find [option] [path] [expression]
+
+For example, you want to look for a file called DevOps within the home directory and its subfolders
+
+find /home -name DevOps
+
+![find command image](image-folder/find.png)
+
+Here are other variations when using find:
+
+find -name filename.txt to find files in the current directory.
+
+find ./-type d -name to look for directories.
+
+### 14. grep command:
+
+Another basic Linux command on the list is grep or global regulator expression print. It lets you find a word by searching through all the texts in a specific file. 
+
+once the grep command finds a match, it prints all lines that contain the specific pattern. This command helps filter through large log files.
+
+For example, you want to search for the word head in the DevOps.txt file:
+
+grep head DevOps.txt
+
+![grep command image](image-folder/grep.png)
+
+The command output will display lines that contains head.
+
+### 15. df command:
+
+Use the df command to report the system's disk space usage, shown in percentage and kilobyte (KB). Here's the general syntax: 
+
+df [options] [file]
+
+for example, enter the following command if you want to see the current directory's system disc space in human-readable format:
+
+df -h
+
+![df command image](image-folder/df.png)
+
+These are some acceptable options to use:
+
+df -m displays information on the file system usage in MBs. 
+
+![df command image](image-folder/df1.png)
+
+df -k displays file system usage in KBs.
+
+![df command image](image-folder/df2.png)
+
+df -T shows the file system in a new column
+
+![df command image](image-folder/df3.png)
 
 
 
