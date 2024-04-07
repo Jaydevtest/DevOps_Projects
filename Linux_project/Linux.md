@@ -70,5 +70,10 @@ cd- moves to your previous directory.
 
 ![cd shorts command image](image-folder/cd2.png)
 
+### 4. ls command:
+The ls command lists files and directories within a system. Running it without a flag or parameter will show the current working directory's content.
+
+
+
 
 
