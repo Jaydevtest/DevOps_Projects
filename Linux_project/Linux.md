@@ -42,3 +42,16 @@ pwd
 
 ![sudo command image](image-folder/pwd.png)
 
+### 2. cd command:
+
+To navigate through the Linux files and directories, use the cd command. Depending on your current working directory, it requires either the full path or the directory name.
+
+Running this command witout as option will take you to the home folder. Keep in mind that only users with sudo privileges can execute it. 
+
+Let's say you're in /home/jayrock and want to go to a new subdirectory of jayrock. To do so, enter the following command:
+
+cd Documents
+
+![sudo command image](image-folder/cd.png)
+
+
