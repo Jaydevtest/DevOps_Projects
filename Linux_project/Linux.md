@@ -68,7 +68,7 @@ cd.. moves one directory up
 
 cd- moves to your previous directory.
 
-![cd shorts command image](image-folder/cd shorts.png)
+![cd shorts command image](image-folder/cd-shorts.png)
 
 
 
