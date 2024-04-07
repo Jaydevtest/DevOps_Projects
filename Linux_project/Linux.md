@@ -295,6 +295,103 @@ df -T shows the file system in a new column
 
 ![df command image](image-folder/df3.png)
 
+### 16. du command:
+
+If you want to check how much space a file or a directory takes up, use the du command to identify which part of the system uses the storage excessively. Remember, you must specify the directory path when using the du command. For example, to check /home/jayrock/DevOps enter:
+
+du /home/jayrock/DevOps
+
+![du command image](image-folder/du.png)
+
+Adding a flag to the du command will modify the operation, such as:
+
+-s offers the total size of a specified folder.
+
+-m provides folder and file information in MB.
+
+-k displays information in KB.
+
+-h informs the last modification date of the displayed folders and files.
+
+### 17. head command
+
+The head command allows you to view the first ten lines of a text. Adding an option lets you change the number of lines shown. The head command is also used to output piped data to the CLI.
+
+Here's a general syntax:
+
+head [option] [title]
+
+For instance, you want to view the first ten lines of DevOps.txt, located in the current directory:
+
+head DevOps.txt file
+
+![head command image](image-folder/head.png)
+
+-n or -lines prints the first customized number of lines. for example, enter head -n5 filename.txt to show the first five lines of the file. 
+
+-c or -bytes prints the first customized number of bytes on each file. 
+
+-q or -quiet will not print headers specifying the file name.
+
+### 18 tail command:
+
+The tail command displays the last ten lines of a file. It allows users to check if a file has new data or to read error messages.
+
+Here's the general format:
+
+tail [option] [file]
+
+For example, you want to see the last ten lines of DevOps.txt file:
+
+tail DevOps.txt 
+
+![tail command image](image-folder/tail.png)
+
+### 19 diff command:
+
+Short for difference, the diff command compares two contents of a file line by line, After analyzing them, it will display the parts that do not match.
+
+Programmers often use the diff command to alter a program instead of rewriting the entire source code.
+
+Here's the general format:
+
+diff [option] file1 file2
+
+For example, you want to compare two files - DepOps and New_Folder
+
+diff DevOps New_Folder
+
+![diff command image](image-folder/diff.png)
+
+Here are some acceptable options to add:
+
+-c displays the difference between two files in a context form.
+
+-u displays the output without redundant information.
+
+-i makes the diff command case insensitive.
+
+### 20. tar command:
+
+The tar command archives multiple files into a TAR file - a common Linux format similar to ZIP, with optional compression.
+
+Here's the basic syntax:
+
+tar [options] [archive_file] [file or directory to be archived]
+
+For instance, you want to create a new TAR archive named newarchive.tar in the /home/jayrock directory:
+
+tar -cvf newarchive.tar /home/jayrock
+
+![tar command image](image-folder/tar.png)
+
+The tar command accepts many options, such as:
+
+-x extracts a file.
+
+-t lists the contents of a file.
+
+-u archives and adds to an existing archive file.
 
 
 
