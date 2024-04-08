@@ -12,7 +12,7 @@ If you try to run sudo in the command line without authenticating yourself, the 
 
 Here is a general syntax:
 
-sudo (command e.g apt upgrade)
+`sudo (command e.g apt upgrade)`
 
 ![sudo command image](image-folder/Sudo1.png)
 
@@ -30,7 +30,7 @@ Use the pwd command to find the path of your current/present working directory. 
 
 The pwd command uses the following syntax:
 
-pwd (options)
+`pwd (options)`
 
 It has two acceptable options: 
 
@@ -38,7 +38,7 @@ It has two acceptable options:
 
 -P or physical prints the actual path of the current directory.
 
-pwd
+`pwd`
 
 ![pwd command image](image-folder/pwd.png)
 
@@ -50,13 +50,13 @@ Running this command without an option will take you to the home folder. Keep in
 
 Let's say you're in /home/jayrock and want to go to a new subdirectory of jayrock. To do so, enter the following command:
 
-cd Documents
+`cd Documents`
 
 ![cd command image](image-folder/cd.png)
 
 If you want to switch to a completely new directory, for example,/home/jayrock/Documents, you have to enter cd followed by the directory's absolute path:
 
-cd /home/jayrock/Documents
+`cd /home/jayrock/Documents`
 
 ![cd command image](image-folder/cd1.png)
 
@@ -77,19 +77,19 @@ The ls command lists files and directories within a system. Running it without a
 
 Here are some options you can use with the ls command:
 
-ls -R
+`ls -R`
 
 lists all the files in the subdirectories
 
 ![ls -R command image](image-folder/ls1.png)
 
-ls -a
+`ls -a`
 
 shows hidden files in addition to the visible ones
 
 ![ls -a command image](image-folder/ls2.png)
 
-ls -lh
+`ls -lh`
 
 shows the file sizes in easily readable formats, such as KB, MB, GB, and TB.
 
@@ -99,19 +99,19 @@ shows the file sizes in easily readable formats, such as KB, MB, GB, and TB.
 
 Concatenate, or cat is one of the most frequently used Linux commands. It lists, combines, and writes file content to the standard output. To run the cat command, type cat followed by the file name and its extension. For instance:
 
-cat DevOps
+`cat DevOps`
 
 ![cat command image](image-folder/cat.png)
 
 Here are other ways to use the cat command:
 
-cat filename1.txt filename2.txt > filename3.txt
+`cat filename1.txt filename2.txt > filename3.txt`
 
 Merges filename1.txt and filename2.txt and stores output in filename3.txt
 
 ![cat command image](image-folder/cat1.png)
 
-tac filename.txt
+`tac filename.txt`
 
 displays content in reverse order
 
@@ -123,17 +123,17 @@ Use the cp command to copy files or directories and their content. Take a look a
 
 To copy one file from the current directory to another, enter cp followed by the file name and the destination directory. For example:
 
-cp DevOps /home/jayrock/Desktop
+`cp DevOps /home/jayrock/Desktop`
 
 ![cp command image](image-folder/cp.png)
 
 To copy the contents of a file to a new file in the same directory, enter cp followed by the source file and the destination file as shown below:
 
-cp filename.txt filename2.txt
+`cp filename.txt filename2.txt`
 
 To copy an entire directory, pass the -R flag before typing the source directory, followed by the destination directory: 
 
-cp -R /home/username/Documents /home/username/Documents_backup
+`cp -R /home/username/Documents /home/username/Documents_backup`
 
 ### 7. mv command:
 
@@ -141,13 +141,13 @@ The primary use of the mv command is to move and rename files and directories. A
 
 Simply type mv followed by the filename and destination directory. for example you want to move to the /home/jayrock/Documents directory
 
-mv DevOps /home/jayrock/Documents
+`mv DevOps /home/jayrock/Documents`
 
 ![mv command image](image-folder/mv.png)
 
 You can also use mv to rename a file:
 
-mv DevOps DevOps.txt
+`mv DevOps DevOps.txt`
 
 ![mv command image](image-folder/mv1.png)
 
@@ -157,23 +157,23 @@ Use the mkdir command to create one or multiple directories at once and set perm
 
 Here are the basic syntax:
 
-mkdir {option} directory_name
+`mkdir {option} directory_name`
 
 For example, you want to create a directory called Blues:
 
-mkdir Blues
+`mkdir Blues`
 
 ![mkdir command image](image-folder/mkdir.png)
 
 To create a new directory called Songs inside Blues, use this command
 
-mkdir Blues/Songs
+`mkdir Blues/Songs`
 
 ![mkdir command image](image-folder/mkdir1.png)
 
 The mkdir accepts options such as :
 
--p or -parent creates a directory between two existing folders. For example, mkdir -p Music/2020/Songs will make the new "2020" directory.
+-p or -parent creates a directory between two existing folders. For example,` mkdir -p Music/2020/Songs` will make the new "2020" directory.
 
 ![mkdir command image](image-folder/mkdir2.png)
 
@@ -187,7 +187,7 @@ To permanently delete an empty directory, use the rmdir command. Remember that t
 
 For example, you eant to remove an empty subdirectory names Songs from the Blues folder
 
-rmdir -p Blues/Songs
+`rmdir -p Blues/Songs`
 
 ![rmdir command image](image-folder/rmdir.png)
 
@@ -199,13 +199,13 @@ Remember the directory's location as this will remove the file(s) and you can't 
 
 Here is a general syntax
 
-rm filename
+`rm filename`
 
 ![rm command image](image-folder/rm.png)
 
 To remove multiple files enter the following command:
 
-rm filename1 filename2 filename
+`rm filename1 filename2 filename`
 
 Here are some acceptable options you can add:
 
@@ -221,7 +221,7 @@ The touch command allows you to create and empty file or generate and modify a t
 
 For example, enter the following command to create an HTML file named Web in the Documents directory:
 
-touch web.HTML
+`touch web.HTML`
 
 ![touch command image](image-folder/touch1.png)
 
@@ -233,7 +233,7 @@ Moreover, adding the -i argument will turn off case sensitivity, so you can sear
 
 To look for the content that contains two or more words use an asterisk (*). For example:
 
-locate -i devops
+`locate -i devops`
 
 ![locate command image](image-folder/locate.png)
 
@@ -241,19 +241,19 @@ locate -i devops
 
 Use the find command to search for files within a specific directory and perform subsequent operations. Here's the general syntax:
 
-find [option] [path] [expression]
+`find [option] [path] [expression]`
 
 For example, you want to look for a file called DevOps within the home directory and its subfolders
 
-find /home -name DevOps
+`find /home -name DevOps`
 
 ![find command image](image-folder/find.png)
 
 Here are other variations when using find:
 
-find -name filename.txt to find files in the current directory.
+`find -name filename.txt` to find files in the current directory.
 
-find ./-type d -name to look for directories.
+`find ./-type d -name` to look for directories.
 
 ### 14. grep command:
 
@@ -263,7 +263,7 @@ once the grep command finds a match, it prints all lines that contain the specif
 
 For example, you want to search for the word head in the DevOps.txt file:
 
-grep head DevOps.txt
+`grep head DevOps.txt`
 
 ![grep command image](image-folder/grep.png)
 
@@ -273,25 +273,25 @@ The command output will display lines that contains head.
 
 Use the df command to report the system's disk space usage, shown in percentage and kilobyte (KB). Here's the general syntax: 
 
-df [options] [file]
+`df [options] [file]`
 
 for example, enter the following command if you want to see the current directory's system disc space in human-readable format:
 
-df -h
+`df -h`
 
 ![df command image](image-folder/df.png)
 
 These are some acceptable options to use:
 
-df -m displays information on the file system usage in MBs. 
+`df -m` displays information on the file system usage in MBs. 
 
 ![df command image](image-folder/df1.png)
 
-df -k displays file system usage in KBs.
+`df -k` displays file system usage in KBs.
 
 ![df command image](image-folder/df2.png)
 
-df -T shows the file system in a new column
+`df -T` shows the file system in a new column
 
 ![df command image](image-folder/df3.png)
 
@@ -299,7 +299,7 @@ df -T shows the file system in a new column
 
 If you want to check how much space a file or a directory takes up, use the du command to identify which part of the system uses the storage excessively. Remember, you must specify the directory path when using the du command. For example, to check /home/jayrock/DevOps enter:
 
-du /home/jayrock/DevOps
+`du /home/jayrock/DevOps`
 
 ![du command image](image-folder/du.png)
 
@@ -319,11 +319,11 @@ The head command allows you to view the first ten lines of a text. Adding an opt
 
 Here's a general syntax:
 
-head [option] [title]
+`head [option] [title]`
 
 For instance, you want to view the first ten lines of DevOps.txt, located in the current directory:
 
-head DevOps.txt file
+`head DevOps.txt file`
 
 ![head command image](image-folder/head.png)
 
@@ -339,11 +339,11 @@ The tail command displays the last ten lines of a file. It allows users to check
 
 Here's the general format:
 
-tail [option] [file]
+`tail [option] [file]`
 
 For example, you want to see the last ten lines of DevOps.txt file:
 
-tail DevOps.txt 
+`tail DevOps.txt `
 
 ![tail command image](image-folder/tail.png)
 
@@ -355,11 +355,11 @@ Programmers often use the diff command to alter a program instead of rewriting t
 
 Here's the general format:
 
-diff [option] file1 file2
+`diff [option] file1 file2`
 
 For example, you want to compare two files - DepOps and New_Folder
 
-diff DevOps New_Folder
+`diff DevOps New_Folder`
 
 ![diff command image](image-folder/diff.png)
 
@@ -377,11 +377,11 @@ The tar command archives multiple files into a TAR file - a common Linux format 
 
 Here's the basic syntax:
 
-tar [options] [archive_file] [file or directory to be archived]
+`tar [options] [archive_file] [file or directory to be archived]`
 
 For instance, you want to create a new TAR archive named newarchive.tar in the /home/jayrock directory:
 
-tar -cvf newarchive.tar /home/jayrock
+`tar -cvf newarchive.tar /home/jayrock`
 
 ![tar command image](image-folder/tar.png)
 
@@ -401,14 +401,14 @@ chmod is a common command that modifies a file or directory's read, write, and e
 
 Here's the basic syntax:
 
-chmod [option] [permission] [file_name]
+`chmod [option] [permission] [file_name]`
 
 For example, the owner is currently the only one with full permissions to change note.txt. To allow group members and others to read, write, and execute the file, change it to the -rwarwxrwo
 permission type, whose numeric value is 777:
 
 This command supports many options, including:
 
-chmod 777 New_Project
+`chmod 777 New_Project`
 
 ![chmod command image](image-folder/chmod.png)
 
@@ -422,11 +422,11 @@ The chown command lets you change the ownership of a file, directory, or symboli
 
 Here's the basic format:
 
-chown [option] owner [: group] file(s)
+`chown [option] owner [: group] file(s)`
 
 For example, you want to make linuxuser 2 the owner of filename.txt:
 
-chown linuxuser2 filename.txt
+`chown linuxuser2 filename.txt`
 
 ### 23. jobs command:
 
@@ -434,7 +434,7 @@ A job is a process that the shell starts. The jobs command will display all the 
 
 This is the basic syntax:
 
-jobs [options] jobId
+`jobs [options] jobId`
 
 To check the status of jobs in the current shell, simply enter jobs to the CLI.
 
@@ -452,11 +452,11 @@ Use the kill command to terminate an unresponsive program manually. It will sign
 
 To kill a program, you must know its process identification number (PID). If you don't know the PID, run the following command:
 
-ps ux
+`ps ux`
 
 After knowing what signal to use and the program's PID, enter the following syntax:
 
-kill [signal option] pid
+`kill [signal option] pid`
 
 There are 64 signals that you can use, but these two are among the most commonly used:
 
@@ -470,11 +470,11 @@ The ping command is one of the most used basic Linux commands for checking wheth
 
 Here's the general format:
 
-ping [option] [hostname_or_IP_address]
+`ping [option] [hostname_or_IP_address]`
 
 For example, you want to know whether you can connect to Google and measure its response time:
 
-ping google.com
+`ping google.com`
 
 ![ping command image](image-folder/ping.png)
 
@@ -490,11 +490,11 @@ The wget command retrieves files using HTTP, HTTPS, and FTP protocols. It can pe
 
 To use it, enter the following command:
 
-wget [option] [URL]
+`wget [option] [URL]`
 
 For example, enter the following command to download the latest version of WordPress:
 
-wget https://wordpress.org/latest/zip
+`wget https://wordpress.org/latest/zip`
 
 ![wget command image](image-folder/wget.png)
 
@@ -504,7 +504,7 @@ The uname or unix name command will print detailed information about your Linux 
 
 Here's the basic syntax:
 
-uname [option]
+`uname [option]`
 
 These are the acceptable options to use:
 
@@ -522,7 +522,7 @@ The top command in Linux Terminal will display all the running processes and a d
 
 The top command can also help you identify and terminate a process that may use too many system resources.
 
-To run the command, simply enter top into the CLI.
+To run the command, simply enter `top` into the CLI.
 
 ![top command image](image-folder/top.png)
 
@@ -533,7 +533,7 @@ command. How this utility runs also depends on which Linux shell you use
 
 To run it, enter the command below:
 
-history
+`history`
 
 ![history command image](image-folder/history.png)
 
@@ -555,17 +555,17 @@ Executable programs or shell commands System calls Library calls Games Special f
 
 For example, you want to access the manual for the Is command:
 
-man ls
+`man ls`
 
 ![man command image](image-folder/man.png)
 
 Enter this command if you want to specify the displayed section:
 
-man [option) [section number] [command _name]
+`man [option) [section number] [command _name]`
 
 For instance, you want to see section 2 of the Is command manual:
 
-man 2 ls
+`man 2 ls`
 
 ![man command image](image-folder/man1.png)
 
@@ -574,9 +574,9 @@ man 2 ls
 
 The echo command is a built-in utility that displays a line of text or string using the standard output. Here's the basic syntax:
 
-echo [option] [string]
+`echo [option] [string]`
 
-echo Hello
+`echo Hello`
 
 ![echo command image](image-folder/echo.png)
 
@@ -602,21 +602,21 @@ The zip command is also useful for archiving files and directories and reducing 
 
 To use it, enter the following syntax:
 
-zip [options] zipfile filel file2.
+`zip [options] zipfile filel file2.`
 
 For example, you have a file named DevOps.txt that you want to compress into archive.zip in the current directory:
 
-zip archive.zip DevOps.txt
+`zip archive.zip DevOps.txt`
 
 ![zip command image](image-folder/zip.png)
 
 On the other hand, the unzip command extracts the zipped files from an archive. Here's the general format:
 
-unzip [option] file_name,zip
+`unzip [option] file_name,zip`
 
 So, to unzip a file called archive.zip in the current directory, enter:
 
-unzip archive.zip
+`unzip archive.zip`
 
 ![zip command image](image-folder/unzip.png)
 
@@ -642,23 +642,23 @@ When you use the useradd command, it performs some major changes:
 
 Edits the /etc/passwd, /etc/shadow, /etc/group, and /etc/shadow files for the newly created accounts. Creates and populates a home directory for the user. Sets file permissions and ownerships to the home directory. Here's the basic syntax:
 
-useradd [option] username
+`useradd [option] username`
 
 To set the password:
 
-passwd the_password_combination
+`passwd the_password_combination`
 
 For example, to add a new person named John, enter the following command simultaneously:
 
-useradd John
+`useradd John`
 
-passwd 123456789
+`passwd 123456789`
 
 ![useradd command image](image-folder/useradd.png)
 
 To delete a user account, use the userdel command:
 
-userdel username
+`userdel username`
 
 ![userdel command image](image-folder/userdel.png)
 
@@ -671,7 +671,7 @@ Running the apt-get command requires you to use sudo or root privileges.
 
 Here's the main syntax:
 
-apt-get [option] (command)
+`apt-get [option] (command)`
 
 These are the most common commands you can add to apt-get:
 
@@ -686,7 +686,7 @@ Linux allows users to edit and manage files via a text editor, such as nano, vi,
 
 The nano command denotes keywords and can work with most languages. To use it, enter the following command:
 
-nano DevOps.txt
+`nano DevOps.txt`
 
 ![nano command image](image-folder/nano.png)
 
@@ -694,7 +694,7 @@ vi uses two operating modes to work - insert and command. insert is used to edit
 
 To use vi on a file, enter:
 
-vi DevOps.txt
+`vi DevOps.txt`
 
 ![vi command image](image-folder/vi.png)
 
@@ -714,7 +714,7 @@ On the other hand, the unalias command deletes an existing alias.
 
 Here's what the general syntax looks like:
 
-unalias [alias_nane]
+`unalias [alias_nane]`
 
 ### 38. su command:
 
@@ -741,6 +741,8 @@ Compared to the top command, htop has many improvements and additional features,
 ![htop command image](image-folder/htop.png)
 
 To use it, run the following command:
+
+`htop`
 
 You can also add options, such as:
 
