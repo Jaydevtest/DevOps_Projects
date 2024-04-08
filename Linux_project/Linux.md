@@ -393,6 +393,322 @@ The tar command accepts many options, such as:
 
 -u archives and adds to an existing archive file.
 
+## File Permissions and Ownership
+
+### 21. chmod command:
+
+chmod is a common command that modifies a file or directory's read, write, and execute permissions. In Linux, each file is associated with three user classes - owner, group member, and others.
+
+Here's the basic syntax:
+
+chmod [option] [permission] [file_name]
+
+For example, the owner is currently the only one with full permissions to change note.txt. To allow group members and others to read, write, and execute the file, change it to the -rwarwxrwo
+permission type, whose numeric value is 777:
+
+This command supports many options, including:
+
+chmod 777 New_Project
+
+![chmod command image](image-folder/chmod.png)
+
+-c or -changes displays information when a change is made. 
+
+-for -silent suppresses the error messages. -v or -verbose displays a diagnostic for each processed file.
+
+### 22. chown command:
+
+The chown command lets you change the ownership of a file, directory, or symbolic link to a specified username.
+
+Here's the basic format:
+
+chown [option] owner [: group] file(s)
+
+For example, you want to make linuxuser 2 the owner of filename.txt:
+
+chown linuxuser2 filename.txt
+
+### 23. jobs command:
+
+A job is a process that the shell starts. The jobs command will display all the running processes along with their statuses. Remember that this command is only available in esh, bash, tesh, and ksh shells.
+
+This is the basic syntax:
+
+jobs [options] jobId
+
+To check the status of jobs in the current shell, simply enter jobs to the CLI.
+
+Here are some options you can use:
+
+-l lists process IDs along with their information.
+
+-n lists jobs whose statuses have changed since the last notification. 
+
+-p lists process IDs only.
+
+### 24. kill command:
+
+Use the kill command to terminate an unresponsive program manually. It will signal misbehaving applications and instruct them to close their processes.
+
+To kill a program, you must know its process identification number (PID). If you don't know the PID, run the following command:
+
+ps ux
+
+After knowing what signal to use and the program's PID, enter the following syntax:
+
+kill [signal option] pid
+
+There are 64 signals that you can use, but these two are among the most commonly used:
+
+SIGTERM requests a program to stop running and gives it some time to save all of its progress. The system will use this by default if you don't specify the signal when entering the kill command.
+
+SIGKILL forces programs to stop, and you will lose unsaved progress. For example, the program's PID is 63773, and you want to force it to stop:
+
+### 25. ping command:
+
+The ping command is one of the most used basic Linux commands for checking whether a network or a server is reachable. In addition, it is used to troubleshoot various connectivity issues.
+
+Here's the general format:
+
+ping [option] [hostname_or_IP_address]
+
+For example, you want to know whether you can connect to Google and measure its response time:
+
+ping google.com
+
+![ping command image](image-folder/ping.png)
+
+This command will ping the address non-stop. To interrupt the pinging press Ctrl + C
+
+![ping command image](image-folder/ping1.png)
+
+### 26. wget command:
+
+The Linux command line lets you download files from the internet using the get command. It works in the background without hindering other running processes.
+
+The wget command retrieves files using HTTP, HTTPS, and FTP protocols. It can perform recursive downloads, which transfer website parts by following directory structures and links, creating local versions of the web pages.
+
+To use it, enter the following command:
+
+wget [option] [URL]
+
+For example, enter the following command to download the latest version of WordPress:
+
+wget https://wordpress.org/latest/zip
+
+![wget command image](image-folder/wget.png)
+
+### 27. uname command:
+
+The uname or unix name command will print detailed information about your Linux system and hardware. This includes the machine name, operating system, and kernel. To run this command, simply enter uname into your CLI.
+
+Here's the basic syntax:
+
+uname [option]
+
+These are the acceptable options to use:
+
+-a prints all the system information. 
+
+-s prints the kernel name. 
+
+-n prints the system's node hostname.
+
+![uname command image](image-folder/uname.png)
+
+### 28. top command:
+
+The top command in Linux Terminal will display all the running processes and a dynamic real time view of the current system. It sums up the resource utilization, from CPU to memory usage.
+
+The top command can also help you identify and terminate a process that may use too many system resources.
+
+To run the command, simply enter top into the CLI.
+
+### 29. history command:
+
+With history, the system will list up to 500 previously executed commands, allowing you to reuse them without re-entering. Keep in mind that only users with sudo privileges can execute this
+command. How this utility runs also depends on which Linux shell you use
+
+To run it, enter the command below:
+
+This command supports many options, such as:
+
+-c clears the complete history list. 
+
+-d offset deletes the history entry at the OFFSET position. 
+
+-a appends history lines.
+
+### 30. man command:
+
+The man command provides a user manual of any commands or utilities you can run in Terminal, including the name, description, and options.
+
+It consists of nine sections:
+
+Executable programs or shell commands System calls Library calls Games Special files File formats and conventions System administration commands Kernel routines Miscellaneous To display the
+
+For example, you want to access the manual for the Is command:
+
+Enter this command if you want to specify the displayed section:
+
+man [option) [section number] [command _name]
+
+For instance, you want to see section 2 of the Is command manual:
+
+### 31. echo command:
+
+The echo command is a built-in utility that displays a line of text or string using the standard output. Here's the basic syntax:
+
+echo [option] [string]
+
+This command supports many options, such as:
+
+-n displays the output without the trailing newline. 
+
+-e enables the interpretation of the following backslash escapes: 
+
+\a plays sound alert. 
+
+\b removes spaces in between a text,
+
+\c produces no further output. 
+
+-E displays the default option and disables the interpretation of backslash escapes.
+
+### 32. zip, unzip commands:
+
+Use the zip command to compress your files into a ZIP file, a universal format commonly used on Linux. It can automatically choose the best compression ratio.
+
+The zip command is also useful for archiving files and directories and reducing disk usage.
+
+To use it, enter the following syntax:
+
+zip [options] zipfile filel file2.
+
+For example, you have a file named note txt that you want to compress into archivezip in the current directory:
+
+zip archive, zip note.txt
+
+On the other hand, the unzip command extracts the zipped files from an archive. Here's the general format:
+
+unzip [option] file_name,zip
+
+So, to unzip a file called archive.zip in the current directory, enter:
+
+### 33. hostname command:
+
+Run the hostname command to know the system's hostname. You can execute it with or without an option. Here's the general syntax:
+
+There are many optional flags to use, including:
+
+-a or -alias displays the hostname's alias. 
+
+-A or -all-fadns displays the machine's Fully Qualified Domain Name (FQDN). 
+
+-i or -ip-address displays the machine's IP address. For example, enter the following command to know your computer's IP address:
+
+### 34. useradd, userdel commands:
+
+Linux is a multi-user system, meaning more than one person can use it simultaneously, useradd is used to create a new account, while the passwd command allows you to add a password. Only those with root privileges or sudo can run the useradd command.
+
+When you use the useradd command, it performs some major changes:
+
+Edits the /etc/passwd, /etc/shadow, /etc/group, and /etc/shadow files for the newly created accounts. Creates and populates a home directory for the user. Sets file permissions and ownerships to the home directory. Here's the basic syntax:
+
+To set the password:
+
+passwd the_password_combination
+
+For example, to add a new person named John, enter the following command simultaneously:
+
+To delete a user account, use the userdel command:
+
+userdel usern.
+
+### 35. apt-get command:
+
+apt-get is a command line tool for handling Advanced Package Tool (APT libraries in Linux. It lets you retrieve information and bundles from authenticated sources to manage, update, remove, and
+install software and its dependencies.
+
+Running the apt-get command requires you to use sudo or root privileges.
+
+Here's the main syntax:
+
+These are the most common commands you can add to apt-get:
+
+update synchronizes the package files from their sources. 
+
+upgrade installs the latest version of all installed packages. 
+
+check updates the package cache and checks broken dependencies.
+
+### 36. nano, vi, jed commands:
+Linux allows users to edit and manage files via a text editor, such as nano, vi, or jed. nano and vi come with the operating system, while jed has to be installed.
+
+The nano command denotes keywords and can work with most languages. To use it, enter the following command:
+
+vi uses two operating modes to work - insert and command. insert is used to edit and create a text file. On the other hand, the command performs operations, such as saving, opening, copying, and pasting a file.
+
+To use vi on a file, enter:
+
+jed has a drop-down menu interface that allows users to perform actions without entering keyboard combinations or commands. Like vi, it has modes to load modules or plugins to write specific texts.
+
+To open the program, simply enter jed to the command line.
+
+### 37. alias, unalias commands:
+
+alias allows you to create a shortcut with the same functionality as a command, file name, or text. When executed, it instructs the shell to replace one string with another.
+
+To use the alias command, enter this syntax:
+
+For example, you want to make k the alias for the kill command:
+
+On the other hand, the unalias command deletes an existing alias.
+
+Here's what the general syntax looks like:
+
+unalias [alias_nane]
+
+### 38. su command:
+
+The switch user or su command allows you to run a program as a different user. It changes the administrative account in the current log-in session. This command is especially beneficial for accessing the system through SSH or using the GUI display manager when the root user is unavailable 
+
+When executed without any option or argument, the su command runs through root privileges. It will prompt you to authenticate and use the sudo privileges temporarily.
+
+Here are some acceptable options to use:
+
+-p or -preserve-environment keeps the same shell environment, consisting HOME, SHELL, USER, and LOGNAME. 
+
+-s or - shell lets you specify a different shell environment to run. 
+
+- or -login runs a login script to switch to a different username. Executing it requires you to enter the user's password.
+
+### 39. htop command:
+
+The htop command is an intense tive program that monitors system resources and server processes in real-time. It is available on most Linux distributions, and you can install it using the default package
+
+Compared to the top command, htop has many improvements and additional features, such as mouse operation and visual indicators.
+
+To use it, run the following command:
+
+You can also add options, such as:
+
+-d or -delay shows the delay between updates in tenths of seconds. 
+
+-C or -no-color enables the monochrome mode. 
+
+-h or -help displays the help message and exit.
+
+### 40. ps command:
+
+The process status or ps command produces a snapshot of all running processes in your system. The static results are taken from the virtual files in the /proc file system.
+
+Executing the ps command without an option or argument will list the running processes in the shell along with:
+
+The unique process ID (PID) The type of the terminal (TTY) The running time (TIME) The command that launches the process (CMD)
+
+Here are some acceptable options you can use:
+
 
 
 
