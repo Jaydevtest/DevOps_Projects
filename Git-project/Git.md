@@ -25,7 +25,7 @@ Now to initialize a git repo follow these steps:
 
 - Open a terminal on your computer, eg git bash,
 
-- ﻿﻿On your terminal create your working folder or directory eg DevOps folder using this command mkdir DevOps
+- ﻿﻿On your terminal create your working folder or directory eg DevOps folder using this command `mkdir DevOps`
 
 - Change or move into your working directory or folder using this command cd DevOps
 
@@ -216,9 +216,9 @@ unordered list example:
 
 ordered list example:
 
-1. FErst 2tem
-2. ﻿﻿﻿Second iter
-3. ﻿﻿﻿Third item
+1. First Item
+2. ﻿﻿﻿Second Item
+3. ﻿﻿﻿Third Item
 
 4. Links:: To create a hyperlink use square brackets for the link text followed by parentheses containing the URL.
 example:
