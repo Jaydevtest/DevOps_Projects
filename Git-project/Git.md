@@ -119,13 +119,13 @@ This is not all you can do with branches in Git. To learn more type the command 
 
 ### Collaboration and Remote Repositories
 
-Lets take a moment to recap about wharve have learnt so far. We learnt that git is a distributed version control system. That essentially solves the problem sharing source code and tracking changes made to source code.
+Let's take a moment to recap what we have learned so far. We learned that git is a distributed version control system. That essentially solves the problem of sharing source code and tracking changes made to source code.
 
-We then learnt about some operations like initializing git repository in our local machine, creating commit, branches etc.
+We then learned about some operations like initializing git repository in our local machine, creating commit, branches, etc.
 
-We also mentioned in passing that git is used for collaboration among remote teams(developers residing in different location). But come to think of it how can developers working remotely collaborate(making changes, adding, updating etc) on the same code base since we currently have our code in our local computer.
+We also mentioned in passing that git is used for collaboration among remote teams(developers residing in different locations). But come to think of it how can developers working remotely collaborate(making changes, adding, updating, etc) on the same code base since we currently have our code in our local computer
 
-This where github comes in. Github is a web based platform where git repositores are hosted. By hosting our local git repository on github, it becomes available in the public internet(it is possible to create private repository as well). Anyone can now access it,
+This is where github comes in. Github is a web-based platform where git repositories are hosted. By hosting our local git repository on github, it becomes available on the public internet(it is possible to create a private repository as well). Anyone can now access it,
 
 Remote teams can now view, update, and make changes to the same repository.
 
@@ -160,45 +160,83 @@ We will achieve this by following the steps below:
 
 git remote add origin <link to your github repo>
 
-The word origin refers to your remote repo link, it evaluates to the remote repo url. It can be any word you choose.
-Cloning Remote Git Repository
-In the last Lesson, We successfully added a remote git repository and pushed our story in the local repository. Now our friend can now make contributions to our story.
-Give it a thought, will he be working on our story on github directly on make a local copy?
-Best practice dictates that he makes a copy of our story locally in his local machine, creates a branch where he can make all the modifications he sees fit.
-But how is he going to make a local copy of our story in his loaci machine? Git clone command to the rescue.
-The git clone command helps us make a copy of remote repository in our local machine. See it as a git tool for downloading remote repository into our local machine. The command is as follows:
-Copy Below
-Tle
-git cLone Kiink to youn nenore reposatory！
+![push image](git-images/push.png)
 
-Branch Management and Tagging
-Introduction to Markdown Syntax
+To get the remote link click on the green button "code", copy the https link. 
+
+![push image](git-images/push2.png)
+
+After commiting your changes in your local repo, push the content to the remote repo using the command below
+
+git push origin <branch name>
+
+![push image](git-images/push1.png)
+
+The word origin refers to your remote repo link, it evaluates to the remote repo url. It can be any word you choose.
+
+## Cloning Remote Git Repository
+
+In the last Lesson, We successfully added a remote git repository and pushed our story into the local repository. N
+
+The git clone command helps us make a copy of the remote repository in our local machine. See it as a git tool for downloading remote repositories into our local machine. The command is as follows:
+
+git clone <link to your remote repository>
+
+![clone image](git-images/clone.png)
+
+## Branch Management and Tagging
+
+### Introduction to Markdown Syntax
+
 Markdown syntax is a lightweight markup language that is widely used for formatting plain text, it allows you to add formatting elements to your text without using complex HTML or other formatting languages. Markdown is commonly used for creating documents, README files, forum posts, and even web pages.
 
-Here is the most commonly used markdown syntax elements:
-1. Headings: To create heading, use the hash symbol at the beginning of the line. The number of hash symbol used indicate the level of the heading.
-Copy Below Code
+Here are the most commonly used markdown syntax elements:
+
+1. Headings: To create a heading, use the hash symbol at the beginning of the line. The number of hash symbol used indicate the level of the heading.
+   
 # Heading 1
-## weading 2
-#I# Heading 3
+
+## Heading 2
+
+### Heading 3
+
 2. Emphasis: asterisks or underscore is used to Emphasis text
-Copy Below Code
-Phtalie* on_italic_
-mboldsx on bolo_
-3. Lists: markdown has support for both ordered and unorderd list
+
+*italic* or _italic_
+
+**bold** on __bold__
+
+3. Lists: markdown has support for both ordered and unordered list
 
 unordered list example:
-Copy Below Code
-Iten I
-- Item 2
-n Item 3
+
+-Item 1
+-Item 2
+-Item 3
+
 ordered list example:
-Copy Below Code
---FErst 2tem
-﻿﻿﻿Second iter
-﻿﻿﻿Third item
+
+1. FErst 2tem
+2. ﻿﻿﻿Second iter
+3. ﻿﻿﻿Third item
+
 4. Links:: To create a hyperlink use square brackets for the link text followed by parentheses containing the URL.
 example:
-Copy Below Code
-Wvisit darey-solChttps-//ar.caney.tol
+
+[visit darey.io] (https://www.darey.io)
+
 5. Images: To display an image, use an exclamation mark followed by square brackets for the alt text and parentheses containing the image URL.
+
+![Alt Text](https://example.com/image.jpg)
+
+6. To display code or code snippets, use backticks (`) to enclose the code.
+   example
+
+   `console.log('Welcome to darey.io')`
+
+
+
+
+
+
+
