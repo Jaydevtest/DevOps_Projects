@@ -524,12 +524,18 @@ The top command can also help you identify and terminate a process that may use 
 
 To run the command, simply enter top into the CLI.
 
+![top command image](image-folder/top.png)
+
 ### 29. history command:
 
 With history, the system will list up to 500 previously executed commands, allowing you to reuse them without re-entering. Keep in mind that only users with sudo privileges can execute this
 command. How this utility runs also depends on which Linux shell you use
 
 To run it, enter the command below:
+
+history
+
+![history command image](image-folder/history.png)
 
 This command supports many options, such as:
 
@@ -549,17 +555,30 @@ Executable programs or shell commands System calls Library calls Games Special f
 
 For example, you want to access the manual for the Is command:
 
+man ls
+
+![man command image](image-folder/man.png)
+
 Enter this command if you want to specify the displayed section:
 
 man [option) [section number] [command _name]
 
 For instance, you want to see section 2 of the Is command manual:
 
+man 2 ls
+
+![man command image](image-folder/man1.png)
+
+
 ### 31. echo command:
 
 The echo command is a built-in utility that displays a line of text or string using the standard output. Here's the basic syntax:
 
 echo [option] [string]
+
+echo Hello
+
+![echo command image](image-folder/echo.png)
 
 This command supports many options, such as:
 
@@ -585,15 +604,21 @@ To use it, enter the following syntax:
 
 zip [options] zipfile filel file2.
 
-For example, you have a file named note txt that you want to compress into archivezip in the current directory:
+For example, you have a file named DevOps.txt that you want to compress into archive.zip in the current directory:
 
-zip archive, zip note.txt
+zip archive.zip DevOps.txt
+
+![zip command image](image-folder/zip.png)
 
 On the other hand, the unzip command extracts the zipped files from an archive. Here's the general format:
 
 unzip [option] file_name,zip
 
 So, to unzip a file called archive.zip in the current directory, enter:
+
+unzip archive.zip
+
+![zip command image](image-folder/unzip.png)
 
 ### 33. hostname command:
 
@@ -603,9 +628,11 @@ There are many optional flags to use, including:
 
 -a or -alias displays the hostname's alias. 
 
--A or -all-fadns displays the machine's Fully Qualified Domain Name (FQDN). 
+-A or -all-fqdns displays the machine's Fully Qualified Domain Name (FQDN). 
 
 -i or -ip-address displays the machine's IP address. For example, enter the following command to know your computer's IP address:
+
+![hostname command image](image-folder/hostname.png)
 
 ### 34. useradd, userdel commands:
 
@@ -615,15 +642,25 @@ When you use the useradd command, it performs some major changes:
 
 Edits the /etc/passwd, /etc/shadow, /etc/group, and /etc/shadow files for the newly created accounts. Creates and populates a home directory for the user. Sets file permissions and ownerships to the home directory. Here's the basic syntax:
 
+useradd [option] username
+
 To set the password:
 
 passwd the_password_combination
 
 For example, to add a new person named John, enter the following command simultaneously:
 
+useradd John
+
+passwd 123456789
+
+![useradd command image](image-folder/useradd.png)
+
 To delete a user account, use the userdel command:
 
-userdel usern.
+userdel username
+
+![userdel command image](image-folder/userdel.png)
 
 ### 35. apt-get command:
 
@@ -633,6 +670,8 @@ install software and its dependencies.
 Running the apt-get command requires you to use sudo or root privileges.
 
 Here's the main syntax:
+
+apt-get [option] (command)
 
 These are the most common commands you can add to apt-get:
 
@@ -647,9 +686,17 @@ Linux allows users to edit and manage files via a text editor, such as nano, vi,
 
 The nano command denotes keywords and can work with most languages. To use it, enter the following command:
 
+nano DevOps.txt
+
+![nano command image](image-folder/nano.png)
+
 vi uses two operating modes to work - insert and command. insert is used to edit and create a text file. On the other hand, the command performs operations, such as saving, opening, copying, and pasting a file.
 
 To use vi on a file, enter:
+
+vi DevOps.txt
+
+![vi command image](image-folder/vi.png)
 
 jed has a drop-down menu interface that allows users to perform actions without entering keyboard combinations or commands. Like vi, it has modes to load modules or plugins to write specific texts.
 
@@ -675,6 +722,8 @@ The switch user or su command allows you to run a program as a different user. I
 
 When executed without any option or argument, the su command runs through root privileges. It will prompt you to authenticate and use the sudo privileges temporarily.
 
+![su command image](image-folder/su.png)
+
 Here are some acceptable options to use:
 
 -p or -preserve-environment keeps the same shell environment, consisting HOME, SHELL, USER, and LOGNAME. 
@@ -688,6 +737,8 @@ Here are some acceptable options to use:
 The htop command is an intense tive program that monitors system resources and server processes in real-time. It is available on most Linux distributions, and you can install it using the default package
 
 Compared to the top command, htop has many improvements and additional features, such as mouse operation and visual indicators.
+
+![htop command image](image-folder/htop.png)
 
 To use it, run the following command:
 
@@ -708,6 +759,10 @@ Executing the ps command without an option or argument will list the running pro
 The unique process ID (PID) The type of the terminal (TTY) The running time (TIME) The command that launches the process (CMD)
 
 Here are some acceptable options you can use:
+
+-T displays all processes associated with the current shell session. 
+-u username lists processes associated with a specific user.
+-A or -e shows all running processes.
 
 
 
