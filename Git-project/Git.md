@@ -2,24 +2,24 @@
 
 ### Initializing a Repository and Making Commits
 
-Before diving into our main objective which is initializing sit and making commits, lets start by introducing Git.
+Before diving into our main objective which is initializing git and making commits, let's start by introducing Git.
 
 ### What is Git
 
-Git is a distributed version control system. This is a typical definition you will find on the internet. But lets break it down further. Git essentially solves the problem of sharing source code efficiently and keeping track of changes made to source code.
+Git is a distributed version control system. This is a typical definition you will find on the internet. But let's break it down further. Git essentially solves the problem of sharing source code efficiently and keeping track of changes made to source code.
 
-Before Git, there were other technologies available that solves this problem a good example is SVN.
+Before Git, there were other technologies available that solved this problem a good example is SVN.
 
-The way that SVN solved this problem posed some challenges. In SVN there exist a central source code repository. Every change by developers is made against this central repository. This setup makes it difficult for developers to collaborate because changes can only be made one at time. Secondly if for any reason the central server goes down or is not reacheable that effectively blocks the
+The way that SVN solved this problem posed some challenges. In SVN there exists a central source code repository. Every change by developers is made against this central repository. This setup makes it difficult for developers to collaborate because changes can only be made one at a time. Secondly if for any reason the central server goes down or is not reachable that effectively blocks the
 developers.
 
-Git adopted a different approach. It allows developers make their own copy of the central repository. That is why it is referred to as a Distributed Version Control System.
+Git adopted a different approach. It allows developers to make their copy of the central repository. That is why it is referred to as a Distributed Version Control System.
 
 ### Initializing a Git Repository
 
 Before initializing a git repo you must have installed git in your computer.
 
-Click on this Install Git. Choose your operating system, could be windows, mac, or even linux. Download and install git in your computer.
+Click on this Install Git. Choose your operating system, which could be Windows, mac, or even Linux. Download and install git on your computer.
 
 Now to initialize a git repo follow these steps:
 
@@ -27,9 +27,9 @@ Now to initialize a git repo follow these steps:
 
 - ﻿﻿On your terminal create your working folder or directory eg DevOps folder using this command `mkdir DevOps`
 
-- Change or move into your working directory or folder using this command cd DevOps
+- Change or move into your working directory or folder using this command `cd DevOps`
 
-- ﻿﻿While you are inside the folder, run git init command
+- ﻿﻿While you are inside the folder, run `git init` command
 
 ![git image](git-images/git.png)
 
@@ -42,13 +42,13 @@ Before making our first commit let's try to understand what a commit is in git. 
 When you make a commit, git takes a snapshot of the current state of your repository and saves a copy in the git folder inside your working directory.
 
 Now let's make our first commit by following these steps:
-- Inside your working directory create a file index. txt using this command touch indextext.
+- Inside your working directory create a file index. txt using this command `touch index.txt`.
 
 - ﻿﻿Write any sentence of your choice inside the text file, Afterwards, save your changes.
 
-- ﻿﻿Add your changes to git staging area using this command git add
+- ﻿﻿Add your changes to git staging area using this command `git add`
 
-- To commit your changes to git, run the command git commnit -m "initial commot"
+- To commit your changes to git, run the command `git commnit -m "initial commot"`
 
 ![commit image](git-images/commit.png)
 
@@ -75,7 +75,7 @@ The -b flag helps you create and change into the new branch
 With that said let's make our first branch following these steps:
 - ﻿﻿Having made your first commit in the previous lesson
 
-- ﻿﻿Make a new branch by running this command git checkout -b my new branch
+- ﻿﻿Make a new branch by running this command `git checkout -b my new branch`
 
 ![branch image](git-images/branch.png)
 
@@ -83,7 +83,7 @@ With that said let's make our first branch following these steps:
 
 Use the command below to list the branches on your local git repository
 
-git branch
+`git branch`
 
 ![branch image](git-images/branch1.png)
 
@@ -91,7 +91,7 @@ git branch
 
 To change into an exiting or old branch use the command below:
 
-git checkout ‹ branch-name›
+`git checkout ‹ branch-name›`
 
 ![branch image](git-images/branch2.png)
 
@@ -101,7 +101,7 @@ Let's say we have two branches A and B. And we want to add the content of branch
 
 First, we change into branch A and run the git command below:
 
-git merge B
+`git merge B`
 
 ![branch image](git-images/branch3.png)
 
@@ -111,9 +111,9 @@ When a new feature is added to an application, It's often done in a feature bran
 
 The Git branch can be deleted with the command below:
 
-git branch -d <branch-name>
+`git branch -d <branch-name>`
 
-This is not all you can do with branches in Git. To learn more type the command Bit branch --help on your terminal.
+This is not all you can do with branches in Git. To learn more type the command `git branch --help` on your terminal.
 
 ## Collaboration and Remote Repositories
 
@@ -158,7 +158,7 @@ Having created a github account and a github repository in earlier steps. Let's 
 We will achieve this by following the steps below:
 - Add a remote repository to the local repository using the command below:
 
-git remote add origin <link to your github repo>
+`git remote add origin <link to your github repo>`
 
 ![push image](git-images/push.png)
 
@@ -168,7 +168,7 @@ To get the remote link click on the green button "code", copy the https link.
 
 After commiting your changes in your local repo, push the content to the remote repo using the command below
 
-git push origin <branch name>
+`git push origin <branch name>`
 
 ![push image](git-images/push1.png)
 
@@ -180,7 +180,7 @@ In the last Lesson, We successfully added a remote git repository and pushed our
 
 The git clone command helps us make a copy of the remote repository in our local machine. See it as a git tool for downloading remote repositories into our local machine. The command is as follows:
 
-git clone <link to your remote repository>
+`git clone <link to your remote repository>`
 
 ![clone image](git-images/clone.png)
 
@@ -194,45 +194,49 @@ Here are the most commonly used markdown syntax elements:
 
 1. Headings: To create a heading, use the hash symbol at the beginning of the line. The number of hash symbol used indicate the level of the heading.
    
-# Heading 1
+`# Heading 1`
 
-## Heading 2
+`## Heading 2`
 
-### Heading 3
+`### Heading 3`
 
 2. Emphasis: asterisks or underscore is used to Emphasis text
 
-*italic* or _italic_
+`*italic* or _italic_`
 
-**bold** on __bold__
+`**bold** on __bold__`
 
 3. Lists: markdown has support for both ordered and unordered list
 
 unordered list example:
 
--Item 1
--Item 2
--Item 3
+`-Item 1`
+
+`-Item 2`
+
+`-Item 3`
 
 ordered list example:
 
-1. First Item
-2. ﻿﻿﻿Second Item
-3. ﻿﻿﻿Third Item
+`1. First Item`
+
+`2. ﻿﻿﻿Second Item`
+
+`3. ﻿﻿﻿Third Item`
 
 4. Links:: To create a hyperlink use square brackets for the link text followed by parentheses containing the URL.
 example:
 
-[visit darey.io] (https://www.darey.io)
+`[visit darey.io] (https://www.darey.io)`
 
 5. Images: To display an image, use an exclamation mark followed by square brackets for the alt text and parentheses containing the image URL.
 
-![Alt Text](https://example.com/image.jpg)
+`![Alt Text](https://example.com/image.jpg)`
 
 6. To display code or code snippets, use backticks (`) to enclose the code.
    example
 
-   `console.log('Welcome to darey.io')`
+ ``console.log('Welcome to darey.io')``
 
 
 
