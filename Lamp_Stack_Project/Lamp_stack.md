@@ -1,4 +1,4 @@
-<img width="567" alt="image" src="https://github.com/Jaydevtest/DevOps_Projects/assets/152006795/10903245-3c27-4f57-9d08-d7b7e957c219"># Lamp Stack Implementation
+# Lamp Stack Implementation
 
 The Project (LAMP Stack) is a comprehensive program designed for individuals seeking to build and deploy web applications using the LAMP stack. This course offers a hands-on learning experience, guiding participants through the process of creating dynamic websites by combining Linux, Apache, MySQL, and PHP. Throughout the course and project implementation, participants will gain a solid understanding of the LAMP stack components and their roles in web application development. Starting with an introduction to the LAMP stack architecture, learners will explore the benefits and advantages of using this powerful combination of technologies.
 
@@ -312,7 +312,7 @@ If you see the text from 'echo' command you wrote to index.html file, then it me
 
 http://3.86.205.228: 80/
 
-![projectlamp_web](Lamp_stack/projectlamp_web.png)
+![projectlamp_web](Lamp_stack/projectlamp-web.png)
 
 You can leave this file in place as a temporary landing page for your application until you set up an index. php file to replace it. Once you do that, remember to remove or rename the from your document root, as it would take precedence over an index.php file by default.
 index.html file
