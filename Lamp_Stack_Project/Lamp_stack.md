@@ -1,4 +1,4 @@
-# Lamp Stack Implementation
+<img width="567" alt="image" src="https://github.com/Jaydevtest/DevOps_Projects/assets/152006795/10903245-3c27-4f57-9d08-d7b7e957c219"># Lamp Stack Implementation
 
 The Project (LAMP Stack) is a comprehensive program designed for individuals seeking to build and deploy web applications using the LAMP stack. This course offers a hands-on learning experience, guiding participants through the process of creating dynamic websites by combining Linux, Apache, MySQL, and PHP. Throughout the course and project implementation, participants will gain a solid understanding of the LAMP stack components and their roles in web application development. Starting with an introduction to the LAMP stack architecture, learners will explore the benefits and advantages of using this powerful combination of technologies.
 
@@ -127,11 +127,17 @@ Again, use 'apt' to acquire and install this software:
 
 $ sudo apt install mysql-server
 
+![mysql_install](Lamp_stack/mysql_install.png)
+
+![mysql_install](Lamp_stack/mysql_install1.png)
+
 When prompted, confirm installation by typing y, and then ENTER
 
 When the installation is finished, log in to the MySOL console by typing:
 
 $ sudo mysql
+
+![mysql](Lamp_stack/mysql.png)
 
 This will connect to the MySQL server as the administrative database user root, which is inferred by the use of sudo when running this command. 
 
@@ -145,9 +151,15 @@ Exit the MySQL shell with:
 
 mysql› exit
 
+![alter_user](Lamp_stack/alter_user.png)
+
 Start the interactive script by running:
 
 $ sudo mysql_secure_installation
+
+![mysql_secure_installation](Lamp_stack/mysql_secure_installation.png)
+
+![mysql_secure_installation](Lamp_stack/mysql_secure_installation1.png)
 
 This will ask if you want to configure the VALIDATE PASSWORD PLUGIN •
 
@@ -165,6 +177,8 @@ For the rest of the questions, press and hit the ENTER key at each prompt. This 
 When you're finished, test if you're able to log in to the MySQL console by typing:
 
 $ sudo mysql -p
+
+![mysql_p](Lamp_stack/mysql_p.png)
 
 Notice the -p flag in this command, which will prompt you for the password used after changing the root user password.
 
@@ -190,9 +204,15 @@ To install these 3 packages at once, run:
 
 $ sudo apt install php libapache2-mod-php php-mysql
 
+![install_php](Lamp_stack/install_php.png)
+
+![install_php](Lamp_stack/install_php1.png)
+
 Once the installation is finished, you can run the following command to confirm your PHP version:
 
 php -v
+
+![php_v](Lamp_stack/php_v.png)
 
 At this point, your LAMP stack is completely installed and fully operational.
 
@@ -219,6 +239,8 @@ Create the directory for project Lamp using 'mkdir' command as follows:
 
 $ sudo mkdir /var/www/projectlamp
 
+![project_lamp](Lamp_stack/project_lamp.png)
+
 Next, assign ownership of the directory with the SUSER environment variable, which will reference your current system user:
 
 $ sudo chown -R SUSER:SUSER /var/ww/projectlamp
@@ -237,6 +259,8 @@ DocumentRoot /var/ww/projectlamp
 Errorlog ${APACHE LOG DIR}/error.log
 CustomLog ${APACHE_LOG_DIR)/access. log combined
 </VirtualHost>
+
+![vi_project_lamp](Lamp_stack/vi_project_lamp.png)
 
 To save and close the file, simply follow the steps below:
 
@@ -274,17 +298,21 @@ Finally, reload Apache so these changes take effect:
 
 $ sudo systemctl reload apache2
 
+![project_lamp](Lamp_stack/project_lamp1.png)
+
 Your new website is now active, but the web root /var/www/projectlamp is still empty. Create an index.html file in that location so that we can test that the virtual host works as expected:
 
 sudo echo 'Hello LAMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html
 
 Now go to your browser and try to open your website URL using IP address:
 
-http://<Public-IP-Address>:80|
+http://3.86.205.228
 
 If you see the text from 'echo' command you wrote to index.html file, then it means your Apache virtual host is working as expected. In the output, you will see your server's public hostname (DNS name) and public IP address. You can also access your website in your browser by public DNS name, not only by IP - try it out, the result must be the same (port is optional)
 
-http://<Public-DNS-Name>: 80/
+http://3.86.205.228: 80/
+
+![projectlamp_web](Lamp_stack/projectlamp_web.png)
 
 You can leave this file in place as a temporary landing page for your application until you set up an index. php file to replace it. Once you do that, remember to remove or rename the from your document root, as it would take precedence over an index.php file by default.
 index.html file
@@ -323,7 +351,11 @@ This will open a blank file. Add the following text, which is valid PHP code, in
 < ?php
 phpinfo();
 
+![virtualhost](Lamp_stack/virtual_host.png)
+
 When you are finished, save and close the file, refresh the page and you will see a page similar to this:
+
+![virtualhost](Lamp_stack/virtual_web.png)
 
 This page provides information about your server from the perspective of PHP. It is useful for debugging and to ensure that your settings are being applied correctly.
 
