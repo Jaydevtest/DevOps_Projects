@@ -251,9 +251,9 @@ Then, create and open a new configuration file in Apache's sites-available direc
 
 This will create a new blank file. Paste in the following bare-bones configuration by hitting on i on the keyboard to enter the insert mode, and paste the text:
 
-`‹VirtualHost *:80>
+`‹VirtualHost *:80>`
       
-      ServerName projectlamp
+     `ServerName projectlamp
       
       ServerAlias www.projectlamp
       
@@ -263,9 +263,9 @@ This will create a new blank file. Paste in the following bare-bones configurati
       
       Errorlog ${APACHE LOG DIR}/error.log
       
-      CustomLog ${APACHE_LOG_DIR)/access. log combined
+      CustomLog ${APACHE_LOG_DIR)/access. log combined`
 
-</VirtualHost>`
+`</VirtualHost>`
 
 ![vi_project_lamp](Lamp_stack/vi_project_lamp.png)
 
