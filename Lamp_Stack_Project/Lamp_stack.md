@@ -334,7 +334,7 @@ In case you want to change this behavior, you'll need to edit the /etc/apache2/m
 
 sudo vim /etc/apache2/mods-enabled/dir.conf
 
-‹IfModule mod_dir.c›
+<IfModule mod_dir.c>
 
     #Change this:
 
