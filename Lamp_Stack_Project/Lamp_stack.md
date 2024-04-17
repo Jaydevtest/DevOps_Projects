@@ -334,21 +334,19 @@ In case you want to change this behavior, you'll need to edit the /etc/apache2/m
 
 sudo vim /etc/apache2/mods-enabled/dir.conf
 
-`‹IfModule mod_dir.c›
+`‹IfModule mod_dir.c›`
 
     #Change this:
 
+    #DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
+
     #To this:
 
-</IfModule>
+    #DirectoryIndex index.php index.html index.cgi index.pl index.html index.htm
 
-#DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
-
-DirectoryIndex index.php index.html index.cgi index.pl index.html index.htm
+    `</IfModule>`
 
 After saving and closing the file, you will need to reload Apache so the changes take effect:
-
-</IfModule>`
 
 `sudo systemctl reload apache2`
 
