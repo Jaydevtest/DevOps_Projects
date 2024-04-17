@@ -253,7 +253,7 @@ This will create a new blank file. Paste in the following bare-bones configurati
 
 `‹VirtualHost *:80>`
       
-     `ServerName projectlamp
+      ServerName projectlamp
       
       ServerAlias www.projectlamp
       
@@ -263,7 +263,7 @@ This will create a new blank file. Paste in the following bare-bones configurati
       
       Errorlog ${APACHE LOG DIR}/error.log
       
-      CustomLog ${APACHE_LOG_DIR)/access. log combined`
+      CustomLog ${APACHE_LOG_DIR)/access. log combined
 
 `</VirtualHost>`
 
