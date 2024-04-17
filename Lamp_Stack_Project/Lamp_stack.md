@@ -14,9 +14,9 @@ A technology stack is a set of frameworks and tools used to develop a software p
 
 -﻿﻿LAMP (Linux, Apache, MySQL, PHP, Python, or Perl)
 
--﻿﻿LEMP (Linux, Nginx, MySQL, PHP, Python, or Perl) |
+-﻿﻿LEMP (Linux, Nginx, MySQL, PHP, Python, or Perl) 
 
--﻿﻿MERN (MongoDB, Express JS, React.JS, NodeJS)|
+-﻿﻿MERN (MongoDB, Express JS, React.JS, NodeJS)
 
 -﻿﻿MEAN (MongoDB, Express.JS, Angular JS, NodeJS
 
@@ -40,7 +40,7 @@ Now, we are going to use that PEM key to connect to our EC2 instance via ssh.
 
 • Connect to the instance by running
 
-ssh -i "Projectkey.pem" ubuntu@ec2-3-86-205-228.compute-1.amazonaws.com
+`ssh -i "Projectkey.pem" ubuntu@ec2-3-86-205-228.compute-1.amazonaws.com`
 
 ![instance](Lamp_stack/instance.png)
 
@@ -60,13 +60,13 @@ Install Apache using Ubuntu's package manager 'apt':
 
 Update a list of packages in the package manager
 
-$ sudo apt update
+`sudo apt update`
 
 ![aptupdate](Lamp_stack/aptupdate.png)
 
 Run Apache2 package installation
 
-$ sudo apt install apache2
+`sudo apt install apache2`
 
 ![installapache](Lamp_stack/installapache.png)
 
@@ -74,7 +74,7 @@ $ sudo apt install apache2
 
 To verify that apache2 is running as a Service in our OS, use the following command
 
-$ sudo systemctl status apache2
+`sudo systemctl status apache2`
 
 ![apachestatus](Lamp_stack/apachestatus.png)
 
@@ -87,11 +87,11 @@ Our server is running and we can access it locally and from the Internet (Source
 
 First, let us try to check how we can access it locally in our Ubuntu shell, run:
 
-$ curl http://localhost: 80
+`curl http://localhost: 80`
 
 or
 
-$ curl http://3.86.205.228:80
+`curl http://3.86.205.228:80`
 
 ![curllocalhost](Lamp_stack/curllocalhost.png)
 
@@ -101,15 +101,15 @@ and the process of converting a DNS name to an IP address is called "resolution"
 
 As an output you can see some strangely formatted tests, do not worry, we just made sure that our Apache web service responds to the 'curl' command with some payload.
 
-Now it is time for us to test how our Apache HTTP server can respond to requests from the Internet. Open a web browser of your choice and try to access the following url
+Now it is time for us to test how our Apache HTTP server can respond to requests from the Internet. Open a web browser of your choice and try to access the following URL
 
-http://3.86.205.228:80
+`http://3.86.205.228:80`
 
 ![apacheinternet](Lamp_stack/apacheinternet.png)
 
 Another way to retrieve your Public IP address, other than to check it in the AWS Web console, is to use the following command:
 
-curl -s http://169.254.169.254/latest/meta-data/public-ipv4|
+`curl -s http://169.254.169.254/latest/meta-data/public-ipv4`
 
 The URL in the browser shall also work if you do not specify a port number since all web browsers use port 80 by default.
 
@@ -125,7 +125,7 @@ Now that you have a web server up and running, you need to install a Database Ma
 
 Again, use 'apt' to acquire and install this software:
 
-$ sudo apt install mysql-server
+`sudo apt install mysql-server`
 
 ![mysql_install](Lamp_stack/mysql_install.png)
 
@@ -135,7 +135,7 @@ When prompted, confirm installation by typing y, and then ENTER
 
 When the installation is finished, log in to the MySOL console by typing:
 
-$ sudo mysql
+`sudo mysql`
 
 ![mysql](Lamp_stack/mysql.png)
 
@@ -143,25 +143,25 @@ This will connect to the MySQL server as the administrative database user root, 
 
 You should see output like this:
 
-It's recommended that you run a security script that comes pre-installed with MySQL. This script will remove some insecure default settings and lock down access to your database system. Before running the script you will set a password for the root user, using mysal_native_password as the default authentication method. We're defining this user's password as Password.1 .
+It's recommended that you run a security script that comes pre-installed with MySQL. This script will remove some insecure default settings and lock down access to your database system. Before running the script you will set a password for the root user, using mysal_native_password as the default authentication method. We're defining this user's password as Passdeeznut.
 
-ALTER USER 'root '@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
+ALTER USER 'root '@'localhost' IDENTIFIED WITH mysql_native_password BY 'Passdeeznut';
 
 Exit the MySQL shell with:
 
-mysql› exit
+mysql› `exit`
 
 ![alter_user](Lamp_stack/alter_user.png)
 
 Start the interactive script by running:
 
-$ sudo mysql_secure_installation
+`sudo mysql_secure_installation`
 
 ![mysql_secure_installation](Lamp_stack/mysql_secure_installation.png)
 
 ![mysql_secure_installation](Lamp_stack/mysql_secure_installation1.png)
 
-This will ask if you want to configure the VALIDATE PASSWORD PLUGIN •
+This will ask if you want to configure the VALIDATE PASSWORD PLUGIN.
 
 Note: Enabling this feature is something of a judgment call. If enabled, passwords which don't match the specified criteria will be rejected by MySQL with an error. It is safe to leave validation disabled, but you should always use strong, unique passwords for database credentials.
 
@@ -176,7 +176,7 @@ For the rest of the questions, press and hit the ENTER key at each prompt. This 
 
 When you're finished, test if you're able to log in to the MySQL console by typing:
 
-$ sudo mysql -p
+`sudo mysql -p`
 
 ![mysql_p](Lamp_stack/mysql_p.png)
 
@@ -184,13 +184,13 @@ Notice the -p flag in this command, which will prompt you for the password used 
 
 To exit the MySQL console, type:
 
-mysql> exit
+mysql> `exit`
 
 Notice that you need to provide a password to connect as the root user.
 
 For increased security, it's best to have dedicated user accounts with less expansive privileges set up for every database, especially if you plan on having multiple databases hosted on your server.
 
-Note: At the time of this writing, the native MySQL PHP library mysqlnd doesn'tsupport caching sha2_authentication, the default authentication method for MySQL 8. For that reason, when creating database users for PHP applications on MySQL 8, you'll need to make sure they're configured to use mysql_native_password instead.
+Note: At the time of this writing, the native MySQL PHP library mysqlnd doesn't support caching sha2_authentication, the default authentication method for MySQL 8. For that reason, when creating database users for PHP applications on MySQL 8, you'll need to make sure they're configured to use mysql_native_password instead.
 
 Your MySQL server is now installed and secured. Next, we will install PHP, the final component in the LAMP stack.
 
@@ -202,7 +202,7 @@ You have Apache installed to serve your content and MySQL installed to store and
 
 To install these 3 packages at once, run:
 
-$ sudo apt install php libapache2-mod-php php-mysql
+`sudo apt install php libapache2-mod-php php-mysql`
 
 ![install_php](Lamp_stack/install_php.png)
 
@@ -210,7 +210,7 @@ $ sudo apt install php libapache2-mod-php php-mysql
 
 Once the installation is finished, you can run the following command to confirm your PHP version:
 
-php -v
+`php -v`
 
 ![php_v](Lamp_stack/php_v.png)
 
@@ -237,28 +237,28 @@ Apache on Ubuntu 20.04 has one server block enabled by default that is configure
 
 Create the directory for project Lamp using 'mkdir' command as follows:
 
-$ sudo mkdir /var/www/projectlamp
+`sudo mkdir /var/www/projectlamp`
 
 ![project_lamp](Lamp_stack/project_lamp.png)
 
 Next, assign ownership of the directory with the SUSER environment variable, which will reference your current system user:
 
-$ sudo chown -R SUSER:SUSER /var/ww/projectlamp
+`sudo chown -R SUSER:SUSER /var/ww/projectlamp`
 
 Then, create and open a new configuration file in Apache's sites-available directory using your preferred command-line editor. Here, we'll be using vi or vim (They are the same by the way):
 
-$ sudo vi /etc/apache2/sites-available/projectlamp.conf
+`sudo vi /etc/apache2/sites-available/projectlamp.conf`
 
 This will create a new blank file. Paste in the following bare-bones configuration by hitting on i on the keyboard to enter the insert mode, and paste the text:
 
-‹VirtualHost *:80>
+`‹VirtualHost *:80>
 ServerName projectlamp
 ServerAlias www.projectlamp
 ServerAdmin webmaster@localhost
 DocumentRoot /var/ww/projectlamp
 Errorlog ${APACHE LOG DIR}/error.log
 CustomLog ${APACHE_LOG_DIR)/access. log combined
-</VirtualHost>
+</VirtualHost>`
 
 ![vi_project_lamp](Lamp_stack/vi_project_lamp.png)
 
@@ -274,43 +274,43 @@ Hit ENTER to save the file
 
 You can use the ls command to show the new file in the sites-available directory
 
-$ sudo 1s /etc/apache2/sites-available
+`sudo 1s /etc/apache2/sites-available`
 
 You will see something like this
 
-000-default.conf default-ssl.conf projectlamp.conf
+`000-default.conf default-ssl.conf projectlamp.conf`
 
 With this VirtualHost configuration, we're telling Apache to serve projectlamp using /var/www/projectlampl as its web root directory. If you would like to test Apache without a domain name, you can remove or comment out the options ServerName and ServerAlias by adding a # character at the beginning of each option's lines. Adding the # character there will tell the program to skip processing the instructions on those lines.
 
 You can now use a2ensite command to enable the new virtual host:
 
-$ sudo alensite projectlamp
+`sudo alensite projectlamp`
 
-You might want to disable the default website that comes installed with Apache. This is required if you're not using a custom domain name, because in this case Apache's default configuration would overwrite your virtual host. To disable Apache's default website use adissite command, type:
+You might want to disable the default website that comes installed with Apache. This is required if you're not using a custom domain name because in this case, Apache's default configuration would overwrite your virtual host. To disable Apache's default website use adissite command, and type:
 
-$ sudo a2dissite 000-default
+`sudo a2dissite 000-default`
 
 To make sure your configuration file doesn't contain syntax errors, run:
 
-$ sudo apache2ctl configtest
+`sudo apache2ctl configtest`
 
 Finally, reload Apache so these changes take effect:
 
-$ sudo systemctl reload apache2
+`sudo systemctl reload apache2`
 
 ![project_lamp](Lamp_stack/project_lamp1.png)
 
 Your new website is now active, but the web root /var/www/projectlamp is still empty. Create an index.html file in that location so that we can test that the virtual host works as expected:
 
-sudo echo 'Hello LAMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html
+`sudo echo 'Hello LAMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html`
 
-Now go to your browser and try to open your website URL using IP address:
+Now go to your browser and try to open your website URL using the IP address:
 
-http://3.86.205.228
+`http://3.86.205.228`
 
 If you see the text from 'echo' command you wrote to index.html file, then it means your Apache virtual host is working as expected. In the output, you will see your server's public hostname (DNS name) and public IP address. You can also access your website in your browser by public DNS name, not only by IP - try it out, the result must be the same (port is optional)
 
-http://3.86.205.228: 80/
+`http://3.86.205.228: 80/`
 
 ![projectlamp_web](Lamp_stack/projectlamp-web.png)
 
@@ -327,29 +327,29 @@ In case you want to change this behavior, you'll need to edit the /etc/apache2/m
 
 sudo vim /etc/apache2/mods-enabled/dir.conf
 
-‹IfModule mod_dir.c›
+`‹IfModule mod_dir.c›
 #Change this:
 #To this:
 </IfModule>
 #DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
 DirectoryIndex index.php index.html index.cgi index.pl index.html index.htm
 After saving and closing the file, you will need to reload Apache so the changes take effect:
-</IfModule>
+</IfModule>`
 
-$ sudo systemctl reload apache2
+`sudo systemctl reload apache2`
 
 Finally, we will create a PHP script to test that PHP is correctly installed and configured on your server.
 
-Now that you have a custom location to host your website's files and folders, we'll create a PHP test script to confirm that Apache is able to handle and process requests for PHP files.
+Now that you have a custom location to host your website's files and folders, we'll create a PHP test script to confirm that Apache can handle and process requests for PHP files.
 
 Create a new file named index.php inside your custom web root folder:
 
-$ vim /var/www/projectlamp/index.php
+`vim /var/www/projectlamp/index.php`
 
 This will open a blank file. Add the following text, which is valid PHP code, inside the file:
 
-< ?php
-phpinfo();
+`< ?php
+phpinfo();`
 
 ![virtualhost](Lamp_stack/virtual_host.png)
 
@@ -363,4 +363,4 @@ If you can see this page in your browser, then your PHP installation is working 
 
 After checking the relevant information about your PHP server through that page, it's best to remove the file you created as it contains sensitive information about your PHP environment -and your Ubuntu server. You can use rm to do so:
 
-$ sudo rm /var/www/projectlamp/index.php
+`sudo rm /var/www/projectlamp/index.php`
