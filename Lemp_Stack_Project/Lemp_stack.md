@@ -2,20 +2,21 @@
 
 As you embark on an exciting journey with the Project (LEMP Stack) Course, you will be introduced to building and deploying web applications using the LEMP stack. This comprehensive course/project takes you through a hands-on adventure, guiding you step-by-step in harnessing the power of Linux, Nginx, MySQL, and PHP to create dynamic and high-performing websites. We will dive into the architecture of the LEMP stack, understanding how Linux provides a solid foundation, Nginx serves as a powerful web server, MySQL handles the databases, and PHP empowers server-side functionality.
 
-Throughout the course/project, we will set up a Linux environment, configure Nginx for optimal performance, manage MySQL databases, and develop PHP code to bring applications to life. Through the practical and hands-on exercises, you will gain proficiency in building dynamic websites with the LEMP stack. We will explore techniques for handling user requests, interacting with databases, processing forms, and implementing robust security measures. Furthermore, introduce you to popular development frameworks and tools that can elevate your productivity and simplify the web application development process. By the end of the Project (LEMP Stack) Course/project, you will have experience to setup the full LEMP stack and create remarkable, high-performance web applications.
+Throughout the course/project, we will set up a Linux environment, configure Nginx for optimal performance, manage MySQL databases, and develop PHP code to bring applications to life. Through the practical and hands-on exercises, you will gain proficiency in building dynamic websites with the LEMP stack. We will explore techniques for handling user requests, interacting with databases, processing forms, and implementing robust security measures. Furthermore, introduces you to popular development frameworks and tools that can elevate your productivity and simplify the web application development process. By the end of the Project (LEMP Stack) Course/project, you will have experience in setting up the full LEMP stack and creating remarkable, high-performance web applications.
 
 # Web Stack Implementation (Lemp Stack)
 
-
 ### Step 0 - Preparing prerequisites
 
-In order to complete this project you will need an AWS account and a virtual server with Ubuntu Server OS.
+To complete this project you will need an AWS account and a virtual server with Ubuntu Server OS.
 
-Launch Git Bash and run following command:
+Launch Git Bash and run the following command:
 
-`ssh -i ‹Your-private-key.pem› ubuntuKEC2-Public-IP-address>`
+`ssh -i "Nginx.pem" ubuntu@ec2-3-85-3-185.compute-1.amazonaws.com`
 
 It will look like this:
+
+
 
 ## Installing the Nginx Web Server
 
