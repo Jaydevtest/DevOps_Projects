@@ -361,6 +361,7 @@ Create a new file named index.php inside your custom web root folder:
 This will open a blank file. Add the following text, which is valid PHP code, inside the file:
 
 `< ?php
+
 phpinfo();`
 
 ![virtualhost](Lamp_stack/virtual_host.png)
