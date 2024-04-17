@@ -16,7 +16,7 @@ Launch Git Bash and run the following command:
 
 It will look like this:
 
-
+![instance](Lemp_stack_images/instance.png)
 
 ## Installing the Nginx Web Server
 
@@ -28,13 +28,19 @@ Since this is our first time using apt for this session, start by updating your 
 
 `sudo apt update`
 
+![apt_update](Lemp_stack_images/apt_update.png)
+
 `sudo apt install nginx`
+
+![install_nginx](Lemp_stack_images/install_nginx.png)
 
 When prompted, enter y to confirm that you want to install Nginx. Once the installation is finished, the Nginx web server will be active and running on your Ubuntu 20.04 server.
 
 To verify that nginx was successfully installed and is running as a service in Ubuntu, run:
 
 `sudo systemctl status nginx`
+
+![nginx_status](Lemp_stack_images/nginx_status.png)
 
 If it is green and running, then you did everything correctly - you have just launched your first Web Server in the Clouds!
 
@@ -49,6 +55,8 @@ First, let us try to check how we can access it locally in our Ubuntu shell, run
 
 `curl http://127.0.0.1:80`
 
+![curl_nginx](Lemp_stack_images/curl_nginx.png)
+
 These 2 commands above actually do pretty much the same - they use 'curl' command to request our Nginx on port 80 (actually you can even try to not specify any port - it will work anyway). The difference is that: in the first case we try to access our server via DNS name and in the second one - by IP address (in this case IP address 127.0.0.1 corresponds to DNS name 'localhost' and the process of converting a DNS name to IP address is called "resolution"). We will touch DNS in further lectures and projects.
 
 As an output you can see some strangely formatted test, do not worry, we just made sure that our Nginx web service responds to 'curl' command with some payload.
@@ -56,6 +64,8 @@ As an output you can see some strangely formatted test, do not worry, we just ma
 Now it is time for us to test how our Nginx server can respond to requests from the Internet. Open a web browser of your choice and try to access following url
 
 `http://<Public-IP-Address›:80`
+
+![nginx_browser](Lemp_stack_images/nginx_browser.png)
 
 Another way to retrieve your Public IP address, other than to check it in AWS Web console, is to use following command:
 
@@ -75,9 +85,9 @@ Again, use 'apt' to acquire and install this software:
 
 `sudo apt install mysql-server`
 
-![mysql_install](Lamp_stack/mysql_install.png)
+![mysql_install](Lemp_stack_images/mysql_install.png)
 
-![mysql_install](Lamp_stack/mysql_install1.png)
+![mysql_install](Lemp_stack_images/mysql_install1.png)
 
 When prompted, confirm installation by typing y, and then ENTER
 
@@ -85,7 +95,7 @@ When the installation is finished, log in to the MySOL console by typing:
 
 `sudo mysql`
 
-![mysql](Lamp_stack/mysql.png)
+![mysql](Lemp_stack_images/mysql.png)
 
 This will connect to the MySQL server as the administrative database user root, which is inferred by the use of sudo when running this command. 
 
@@ -99,15 +109,15 @@ Exit the MySQL shell with:
 
 mysql› `exit`
 
-![alter_user](Lamp_stack/alter_user.png)
+![alter_user](Lemp_stack_images/alter_user.png)
 
 Start the interactive script by running:
 
 `sudo mysql_secure_installation`
 
-![mysql_secure_installation](Lamp_stack/mysql_secure_installation.png)
+![mysql_secure_installation](Lemp_stack_images/mysql_secure_installation.png)
 
-![mysql_secure_installation](Lamp_stack/mysql_secure_installation1.png)
+![mysql_secure_installation](Lemp_stack_images/mysql_secure_installation1.png)
 
 This will ask if you want to configure the VALIDATE PASSWORD PLUGIN.
 
@@ -126,7 +136,7 @@ When you're finished, test if you're able to log in to the MySQL console by typi
 
 `sudo mysql -p`
 
-![mysql_p](Lamp_stack/mysql_p.png)
+![mysql_p](Lemp_stack_images/mysql_p.png)
 
 Notice the -p flag in this command, which will prompt you for the password used after changing the root user password.
 
