@@ -252,12 +252,19 @@ Then, create and open a new configuration file in Apache's sites-available direc
 This will create a new blank file. Paste in the following bare-bones configuration by hitting on i on the keyboard to enter the insert mode, and paste the text:
 
 `‹VirtualHost *:80>
-ServerName projectlamp
-ServerAlias www.projectlamp
-ServerAdmin webmaster@localhost
-DocumentRoot /var/ww/projectlamp
-Errorlog ${APACHE LOG DIR}/error.log
-CustomLog ${APACHE_LOG_DIR)/access. log combined
+      
+      ServerName projectlamp
+      
+      ServerAlias www.projectlamp
+      
+      ServerAdmin webmaster@localhost
+      
+      DocumentRoot /var/ww/projectlamp
+      
+      Errorlog ${APACHE LOG DIR}/error.log
+      
+      CustomLog ${APACHE_LOG_DIR)/access. log combined
+
 </VirtualHost>`
 
 ![vi_project_lamp](Lamp_stack/vi_project_lamp.png)
@@ -328,12 +335,19 @@ In case you want to change this behavior, you'll need to edit the /etc/apache2/m
 sudo vim /etc/apache2/mods-enabled/dir.conf
 
 `‹IfModule mod_dir.c›
-#Change this:
-#To this:
+
+    #Change this:
+
+    #To this:
+
 </IfModule>
+
 #DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm
+
 DirectoryIndex index.php index.html index.cgi index.pl index.html index.htm
+
 After saving and closing the file, you will need to reload Apache so the changes take effect:
+
 </IfModule>`
 
 `sudo systemctl reload apache2`
