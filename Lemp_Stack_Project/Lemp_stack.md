@@ -198,7 +198,8 @@ This will create a new blank file. Paste in the following bare-bones configurati
 
 `#/etc/nginx/sites-available/projectLEMP`
 
-```server {
+```
+server {
 
 listen 80;
 
@@ -313,7 +314,8 @@ You can do this by creating a test PHP file in your document root. Open a new fi
 
 Type or paste the following lines into the new file. This is a valid PHP code that will return information about your server:
 
-```<?php
+```
+<?php
 
 phpinfo):
 
@@ -430,7 +432,8 @@ Now you can create a PHP script that will connect to MySQL and query for your co
 The following PHP script connects to the MySQL database and queries for the content of the todo _list table displays the results in a list. If there is a problem with the database connection, it will throw an exception.
 Copy this content into your todo_list.php script:
 
-```<?php
+```
+<?php
 
 $user = "example_user";
 
