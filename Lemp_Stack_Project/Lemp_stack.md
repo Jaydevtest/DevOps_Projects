@@ -198,7 +198,7 @@ This will create a new blank file. Paste in the following bare-bones configurati
 
 `#/etc/nginx/sites-available/projectLEMP`
 
-server {
+```server {
 
 listen 80;
 
@@ -222,7 +222,7 @@ fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
 
 location ~ /N.ht E
 
-deny all;
+deny all;```
 
 ![project_LEMP](Lemp_stack_images/project_LEMP.png)
 
@@ -312,11 +312,11 @@ You can do this by creating a test PHP file in your document root. Open a new fi
 
 Type or paste the following lines into the new file. This is a valid PHP code that will return information about your server:
 
-`<?php
+```<?php
 
 phpinfo):
 
-?>`
+?>```
 
 You can now access this page in your web browser by visiting the domain name or public IP address you've set up in your Nginx configuration file, followed by /info.php :
 
@@ -428,7 +428,7 @@ Now you can create a PHP script that will connect to MySQL and query for your co
 The following PHP script connects to the MySQL database and queries for the content of the todo _list table displays the results in a list. If there is a problem with the database connection, it will throw an exception.
 Copy this content into your todo_list.php script:
 
-`<?php
+```<?php
 
 $user = "example_user";
 
@@ -440,21 +440,23 @@ $table = "todo_list";
 
 try {
 
-$db = new PDO("mysq]:host=localhost;dbname=$database", Suser, $password);
+  $db = new PDO("mysql:host=localhost;dbname=$database", $user, $password);
+  
+  echo "<h2>TODO</h2><ol>";
+  
+  foreach($db->query("SELECT content FROM $table") as $row) {
+  
+    echo "<li>" . $row['content'] . "</li>";
+  }
+  
+  echo "</ol>";
 
-echo "<h2>TODO</h2><ol>";
+} catch (PDOException $e) {
 
-foreach($db-›query ("SELECT content FROM $table") as $row) [ echo "‹li›" . $row['content']. "</li>";
-
-echo "</ol>";
-
-catch (PDOException $e) {
-
-print "Error!:" . $e-›getMessage() . "‹br/›*;
-
-die;
-
-?>`
+    print "Error!: " . $e->getMessage() . "<br/>";
+    
+    die();
+}```
 
 Save and close the file when you are done editing.
 
