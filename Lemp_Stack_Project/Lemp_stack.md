@@ -121,11 +121,11 @@ Start the interactive script by running:
 
 This will ask if you want to configure the VALIDATE PASSWORD PLUGIN.
 
-Note: Enabling this feature is something of a judgment call. If enabled, passwords which don't match the specified criteria will be rejected by MySQL with an error. It is safe to leave validation disabled, but you should always use strong, unique passwords for database credentials.
+Note: Enabling this feature is something of a judgment call. If enabled, passwords that don't match the specified criteria will be rejected by MySQL with an error. It is safe to leave validation disabled, but you should always use strong, unique passwords for database credentials.
 
 Answer y for yes, or anything else to continue without enabling.
 
-Regardless of whether you chose to set up the VALIDATE PASSWORD PLUGIN , your server will next ask you to select and confirm a password for the MySQL root user. This is not to be confused with the system root. The database root user is an administrative user with full privileges over the database system. Even though the default authentication method for the MySQL root user dispenses the use
+Regardless of whether you choose to set up the VALIDATE PASSWORD PLUGIN, your server will next ask you to select and confirm a password for the MySQL root user. This is not to be confused with the system root. The database root user is an administrative user with full privileges over the database system. Even though the default authentication method for the MySQL root user dispenses the use
 of a password, even when one is set, you should define a strong password here as an additional safety measure. We'll talk about this in a moment.
 
 If you enabled password validation, you'll be shown the password strength for the root password you just entered and your server will ask if you want to continue with that password. If you are happy with your current password, enter y for "yes" at the prompt:
@@ -166,7 +166,11 @@ To install these 2 packages at once, run:
 
 `sudo apt install php-fpm php-mysql`
 
-When prompted, type y and press ENTER to confirm installation.
+When prompted, type y and press ENTER to confirm the installation.
+
+![install_php](Lemp_stack_images/install_php.png)
+
+![install_php](Lemp_stack_images/install_php1.png)
 
 You now have your PHP components installed. Next, you will configure Nginx to use them.
 
@@ -207,6 +211,8 @@ fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
 location ~ /N.ht E
 deny all;
 
+![project_LEMP](Lemp_stack_images/project_LEMP.png)
+
 Here's what each of these directives and location blocks do:
 
   -listen - Defines what port Nginx will listen on. In this case, it will listen on port 80, the default port for HTTP.
@@ -217,12 +223,17 @@ Here's what each of these directives and location blocks do:
     index.html files with a higher precedence than index.php files to allow for quickly setting up a maintenance landing 
     page in PHP applications. You can adjust these settings to better suit your application needs
   
-  -﻿﻿server_name - Defines which domain names and/or IP addresses this server block should respond for. Point this directive to your server's domain name or public IP address
+  -﻿﻿server_name - Defines which domain names and/or IP addresses this server block should respond for. Point this directive 
+   to your server's domain name or public IP address
   
-  -﻿﻿location / - The first location block includes a try_files directive, which checks for the existence of files or directories matching a URI request. If Nginx cannot find the appropriate resource, it will return a 404 error
+  -﻿﻿location / - The first location block includes a try_files directive, which checks for the existence of files or 
+   directories matching a URI request. If Nginx cannot find the appropriate resource, it will return a 404 error
   
-  -﻿﻿location ~ \.php$ - This location block handles the actual PHP processing by pointing Nginx to the fastcgi-php.conf configuration file and the php7.4-fpm.sock file , which declares what socket is associated with php-fpm.
--﻿﻿location ~ /N.ht - The last location block deals with htaccess files, which Nginx does not process. By adding the deny all directive, if any htaccess files happen to find their way into the document root they will not be served to visitors.
+  -﻿﻿location ~ \.php$ - This location block handles the actual PHP processing by pointing Nginx to the fastcgi-php.conf 
+   configuration file and the php7.4-fpm.sock file , which declares what socket is associated with php-fpm.
+  
+  -﻿﻿location ~ /N.ht - The last location block deals with htaccess files, which Nginx does not process. By adding the deny 
+   all directive, if any htaccess files happen to find their way into the document root they will not be served to visitors.
 
 When you're done editing, save and close the file. If you're using nano, you can do so by typing CTRL+X and then y and ENTER to confirm.
 
@@ -234,6 +245,8 @@ This will tell Nginx to use the configuration next time it is reloaded. You can 
 
 `sudo nginx -t`
 
+![nginx_t](Lemp_stack_images/nginx_t.png)
+
 You shall see following message:
 
 nginx: the configuration file /etc/nginx/nginx.conf syntax is ok 
@@ -242,7 +255,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 
 If any errors are reported, go back to your configuration file to review its contents before continuing.
 
-We also need to disable default Nginx host that is currently configured to listen on port 80, for this run:
+We also need to disable the default Nginx host that is currently configured to listen on port 80, for this run:
 
 `sudo unlink /etc/nginx/sites-enabled/default`
 
@@ -257,6 +270,8 @@ Your new website is now active, but the web root /var/www/projectLEMP is still e
 Now go to your browser and try to open your website URL using IP address:
 
 `http://<Public-IP-Address>:80`
+
+![nginx_php_browser](Lemp_stack_images/nginx_php_browser.png)
 
 If you see the text from 'echo' command you wrote to index.htmi file, then it means your Nginx site is working as expected. In the output you will see your server's public hostname (DNS name) and public IP address. You can also access your website in your browser by public DNS name, not only by IP - try it out, the result must be the same (port is optional)
 
@@ -291,6 +306,8 @@ You can now access this page in your web browser by visiting the domain name or 
 
 `http://server_domain_or_IP*/info.php`
 
+![nginx_infophp](Lemp_stack_images/nginx_infophp.png)
+
 You will see a web page containing detailed information about your server:
 
 After checking the relevant information about your PHP server through that page, it's best to remove the file you created as it contains sensitive information about your PHP environment and your Ubuntu server. You can use rm to remove that file:
@@ -307,7 +324,7 @@ In this step you will create a test database (DB) with a simple "To-do list" and
 
 At the time of this writing, the native MySQL PHP library mysqlnd doesn't support caching_sha2_authentication, the default authentication method for MySQL 8. We'll need to create a new user with the mysql_native_password authentication method to be able to connect to the MySQL database from PHP.
 
-We will create a database named example_database and a user named example_user, but you can replace these names with different values.
+We will create a database named C and a user named Joseph.
 
 First, connect to the MySQL console using the root account:
 
@@ -315,20 +332,20 @@ First, connect to the MySQL console using the root account:
 
 To create a new database, run the following command from your MySQL console:
 
-`mysql> CREATE DATABASE "example_database* ;`
+`mysql> CREATE DATABASE "My_test_database";`
 
 Now you can create a new user and grant him full privileges on the database you have just created.
 
-The following command creates a new user named example user, using mysal_native_password as default authentication method. We're defining this user's password as should replace this value with a secure password of your own choosing.
-Password.1
+The following command creates a new user named example user, using mysql_native_password as the default authentication method. We're defining this user's password as should replace this value with a secure password of your choosing.
+Passdeeznut22$
 
-mysql> `CREATE USER 'example_user'@'%* IDENTIFIED WITH mysql_native_password`
+mysql> `CREATE USER 'Joseph'@'%* IDENTIFIED WITH mysql_native_password`
 
 Now we need to give this user permission over the example_database database:
 
-`mysql> GRANT ALL ON example_database.* TO 'example_user'@*%*;`
+`mysql> GRANT ALL ON my_test_database.* TO 'Joseph'@*%*;`
 
-This will give the example _user user full privileges over the example _database database, while preventing this user from creating or modifying other databases on your server.
+This will give the example_user user full privileges over the example_database database, while preventing this user from creating or modifying other databases on your server.
 
 Now exit the MySQL shell with:
 
@@ -336,11 +353,13 @@ mysql> `exit`
 
 You can test if the new user has the proper permissions by logging in to the MySQL console again, this time using the custom user credentials:
 
-`mysql -u example_user -P`
+`mysql -u Joseph -P`
 
 Notice the -p flag in this command, which will prompt you for the password used when creating the example_user user. After logging in to the MySQL console, confirm that you have access to the example_database database:
 
 mysql> `SHOW DATABASES;`
+
+![musql_database](Lemp_stack_images/mysql_database.png)
 
 This will give you the following output:
 
@@ -371,6 +390,8 @@ item id content
 4 rows in set
 0.000
 
+![my_test_database](Lemp_stack_images/my_test_database.png)
+
 After confirming that you have valid data in your test table, you can exit the MySQL console:
 
 mysql> `exit`
@@ -379,7 +400,7 @@ Now you can create a PHP script that will connect to MySQL and query for your co
 
 `nano /var/www/projectLEMP/todo_list.php`
 
-The following PHP script connects to the MySQL database and queries for the content of the todo _list table, displays the results in a list. If there is a problem with the database connection, it will throw an exception.
+The following PHP script connects to the MySQL database and queries for the content of the todo _list table displays the results in a list. If there is a problem with the database connection, it will throw an exception.
 Copy this content into your todo_list.php script:
 
 < ?php
