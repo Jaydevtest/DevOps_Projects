@@ -297,10 +297,13 @@ You can do this by creating a test PHP file in your document root. Open a new fi
 
 `nano /var/www/projectLEMP/info.php`
 
-Type or paste the following lines into the new file. This is valid PHP code that will return information about your server:
+Type or paste the following lines into the new file. This is a valid PHP code that will return information about your server:
 
 `<?php
-phpinfo):`
+
+phpinfo):
+
+?>`
 
 You can now access this page in your web browser by visiting the domain name or public IP address you've set up in your Nginx configuration file, followed by /info.php :
 
@@ -312,7 +315,7 @@ You will see a web page containing detailed information about your server:
 
 After checking the relevant information about your PHP server through that page, it's best to remove the file you created as it contains sensitive information about your PHP environment and your Ubuntu server. You can use rm to remove that file:
 
-`sudo rm /var/ww/your domain/info.php`
+`sudo rm /var/www/your domain/info.php`
 
 You can always regenerate this file if you need it later.
 
@@ -364,8 +367,11 @@ mysql> `SHOW DATABASES;`
 This will give you the following output:
 
 Output
+
 Database
+
 example database information_schema
+
 2 rows in set (0.000 sec)
 
 Next, we'll create a test table named todo_list. From the MySQL console, run the following statement:
@@ -383,11 +389,17 @@ mysql> `SELECT * FROM example_database. todo_list;`
 You'll see the following output:
 
 Output
+
 item id content
-﻿﻿﻿﻿My first important item
-﻿﻿﻿﻿My second important item
-﻿﻿﻿﻿My third important item and this one more thing
+﻿﻿﻿﻿
+My first important item
+
+My second important item
+
+My third important item and this one more thing
+
 4 rows in set
+
 0.000
 
 ![my_test_database](Lemp_stack_images/my_test_database.png)
@@ -403,19 +415,33 @@ Now you can create a PHP script that will connect to MySQL and query for your co
 The following PHP script connects to the MySQL database and queries for the content of the todo _list table displays the results in a list. If there is a problem with the database connection, it will throw an exception.
 Copy this content into your todo_list.php script:
 
-< ?php
-Suser = "example_user";
+`<?php
+
+$user = "example_user";
+
 $password = "PassWord.1";
+
 $database = "example_database";
+
 $table = "todo_list";
-try f
+
+try {
+
 $db = new PDO("mysq]:host=localhost;dbname=$database", Suser, $password);
+
 echo "<h2>TODO</h2><ol>";
+
 foreach($db-›query ("SELECT content FROM $table") as $row) [ echo "‹li›" . $row['content']. "</li>";
+
 echo "</ol>";
+
 catch (PDOException $e) {
+
 print "Error!:" . $e-›getMessage() . "‹br/›*;
+
 die;
+
+?>`
 
 Save and close the file when you are done editing.
 
