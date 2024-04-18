@@ -197,18 +197,31 @@ Then, open a new configuration file in Nginx's sites-available directory using y
 This will create a new blank file. Paste in the following bare-bones configuration:
 
 `#/etc/nginx/sites-available/projectLEMP`
+
 server {
+
 listen 80;
+
 server_name projectLEMP www.projectLEMP;
+
 root /var/ww/projectLEMP;
+
 index index.html index.htm index.php;
+
 location / f
+
 try_files Suri $uri/ =404;
+
 }
+
 location ~ \-php$ {
+
 include snippets/fastcgi-php.conf;
+
 fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
+
 location ~ /N.ht E
+
 deny all;
 
 ![project_LEMP](Lemp_stack_images/project_LEMP.png)
