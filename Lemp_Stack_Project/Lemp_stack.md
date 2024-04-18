@@ -222,7 +222,8 @@ fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
 
 location ~ /N.ht E
 
-deny all;```
+deny all;
+```
 
 ![project_LEMP](Lemp_stack_images/project_LEMP.png)
 
@@ -316,7 +317,8 @@ Type or paste the following lines into the new file. This is a valid PHP code th
 
 phpinfo):
 
-?>```
+?>
+```
 
 You can now access this page in your web browser by visiting the domain name or public IP address you've set up in your Nginx configuration file, followed by /info.php :
 
@@ -456,7 +458,8 @@ try {
     print "Error!: " . $e->getMessage() . "<br/>";
     
     die();
-}```
+}
+```
 
 Save and close the file when you are done editing.
 
