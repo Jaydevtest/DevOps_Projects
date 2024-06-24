@@ -1,4 +1,4 @@
-# Introduction to Shell Scripting an User Input
+<img width="734" alt="image" src="https://github.com/Jaydevtest/DevOps_Projects/assets/152006795/77bbc2a8-6e0e-4bb9-9b1a-6efa8c1a4007"># Introduction to Shell Scripting an User Input
 ## Shell Scripting Syntax Elements
 ### 1. Variables:
 Bash allows you to define and work with variables. Variables can store data of various types such as numbers, strings, and arrays. You can assign values to variables using the = operator, and access their values using the variable name preceded by a $ sign.
@@ -10,6 +10,8 @@ Example: Assigning value to a variable:
 
 Example: Retrieving value from a variable:
 `echo $name`
+
+![value1](Shell_scripting_Images/value1.png)
 
 ### 2. Control Flow: 
 Bash provides control flow statements like if-else, for loops, while loops, and case statements to control the flow of execution in your scripts. These statements allow you to make decisions, iterate over the lists, and execute different commands based on conditions.
@@ -32,6 +34,8 @@ else
 fi
 ```
 
+![if_else](Shell_scripting_Images/if-else.png)
+
 Example: Script to check if a number is positive, negative, or zero
 
 This code prompts you to type a number and prints a statement stating the number is positive, negative, or zero.
@@ -49,6 +53,8 @@ do
 done
 ```
 
+![loop](Shell_scripting_Images/loop.png)
+
 ### 3. Command Substitution:
 Command substitution allows you to capture a command's output and use it as a value within your script. You can use the backtick or the $() syntax for the command substitution.
 
@@ -57,6 +63,8 @@ Example: Using backtick for command substitution
 
 Example: Using $() syntax for command substitution
 `current_date=$(date +%Y-%m-%d)`
+
+![sub](Shell_scripting_Images/sub.png)
 
 ### 4. Input and Output:
 Bash provides various ways to handle input and output. You can use the read command to accept user input, and output text to the console using the echo command. Additionally, you can redirect input and output using operators like > (output to a file), < (input from a file), and | (pipe the output of one command as input to another).
@@ -94,6 +102,8 @@ echo "Hello, $1! Nice to meet you."
 greet "John"
 ```
 
+![functions](Shell_scripting_Images/functions.png)
+
 ## First Shell Script
 
 ### step 1: 
@@ -101,6 +111,8 @@ Open a folder called _shell-scripting_ on your terminal using the command `mkdir
 
 ### step 2: 
 Create a file called _user-input.sh_ using the command `touch user-input.sh`
+
+![first-script](Shell_scripting_Images/first-script.png)
 
 ### step 3: 
 Inside the file copy and paste the block of code below:
@@ -125,7 +137,7 @@ Run the command `sudo chmod +x user-input.sh` to make the file executable
 ### step 6:
 Run the script using the command `./user-input.sh`
 
-
+![first-script](Shell_scripting_Images/first-script1.png)
 
 # Directory Manipulation and Navigation
 
@@ -186,6 +198,7 @@ Run the command `sudo chmod +x navigating-linux-filesystem.sh` to execute permis
 ### step 4:
 Run your script using the command `./navigating-linux-filesystem.sh`
 
+![second-script](Shell_scripting_Images/second-script.png)
 
 # File Operations and Sorting
 
@@ -243,6 +256,7 @@ Set execute permission on _sorting.sh_ using `sudo chmod +x sorting.sh`
 ### step 4: 
 Run your script using the command `./sorting.sh`
 
+![third-script](Shell_scripting_Images/third-script.png)
 
 # Working with Numbers and calculations
 
@@ -292,6 +306,7 @@ Set execute permission on _calculations.sh_ using the command: `sudo chmod +x ca
 ### step 4: 
 Run your script using this command `./calculations.sh`
 
+![calculations](Shell_scripting_Images/calculations.png)
 
 # File Backup and Timestamping
 
@@ -334,7 +349,7 @@ Set executable permission on _backup.sh_ using the command `sudo chmod +x backup
 ### step 4:
 Run your script using the command: ./backup.sh
 
-
+![backup](Shell_scripting_Images/backup.png)
 
 
 
