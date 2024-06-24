@@ -60,9 +60,7 @@ Command substitution allows you to capture a command's output and use it as a va
 
 Example: Using backtick for command substitution
 
-```
-`current_date=`date +%Y-%m-%d`
-```
+`current_date=\`\date +%Y-%m-%d`
 
 Example: Using $() syntax for command substitution
 `current_date=$(date +%Y-%m-%d)`
