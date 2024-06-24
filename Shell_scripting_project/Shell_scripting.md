@@ -34,24 +34,26 @@ fi
 
 Example: Script to check if a number is positive, negative, or zero
 
-
 This code prompts you to type a number and prints a statement stating the number is positive, negative, or zero.
 
 Example: Iterating through a list using a for loop.
-``#!/bin/bash
+
+```
+#!/bin/bash
 
 #Example script to print numbers from 1 to 5 using a for loop
 
 for (( i=1; i<=5; i++ ))
 do
     echo $i
-done``
+done
+```
 
 ### 3. Command Substitution:
 Command substitution allows you to capture a command's output and use it as a value within your script. You can use the backtick or the $() syntax for the command substitution.
 
 Example: Using backtick for command substitution
-`current_date=`date +%Y-%m-%d``
+`current_date=`date +%Y-%m-%d`
 
 Example: Using $() syntax for command substitution
 `current_date=$(date +%Y-%m-%d)`
@@ -60,8 +62,11 @@ Example: Using $() syntax for command substitution
 Bash provides various ways to handle input and output. You can use the read command to accept user input, and output text to the console using the echo command. Additionally, you can redirect input and output using operators like > (output to a file), < (input from a file), and | (pipe the output of one command as input to another).
 
 Example: Accept user input
-``echo "Enter your name: "
-read name``
+
+```
+echo "Enter your name: "
+read name
+```
 
 Example: Output text to the terminal
 `echo "Hello World"`
@@ -78,14 +83,16 @@ Example: Pass the result of a command as input to another command
 ### 5. Funcitons: 
 Bash allows you to define and use functions to group related commands together. Functions provide a way to modularize your code and make it more reusable. You can define function using the function keyword or simply declaring the function name followed by parenthesis.
 
-``#!/bin/bash
+```
+#!/bin/bash
 
 #Define a function to greet user
 greet() {
 echo "Hello, $1! Nice to meet you."
 }
 #Call the greet function and pass the name as an argument
-greet "John"``
+greet "John"
+```
 
 ## First Shell Script
 
@@ -98,14 +105,16 @@ Create a file called user-input.sh using the command `touch user-input.sh`
 ### step 3: 
 Inside the file copy and paste the block of code below:
 
-``#!/bin/bash
+```
+#!/bin/bash
 
 #Prompt the user for their name
 echo "Enter your name: "
 read name
 
 #Display a greeting with the entered name
-echo "Hello, $name! Nice to meet you."``
+echo "Hello, $name! Nice to meet you."
+```
 
 ### step 4:
 save your file
@@ -130,6 +139,7 @@ open a file named navigating-linux-system.sh
 ### step 2:
 Paste the code block below into your file.
 
+```
 #!/bin/bash
 
 #Display current directory
@@ -168,6 +178,7 @@ echo "Directory removed."
 #List the files in the current directory again
 echo "Files in the current directory:"
 ls
+```
 
 ### step 3:
 Run the command sudo chmod +x navigating-linux-filesystem.sh to execute permissing on the file
@@ -188,6 +199,44 @@ Open your terminal and create a file called sorting.sh using the command `touch 
 ### step 2: 
 Copy and paste the code block below into the file
 
+```
+#!/bin/bash
+
+# Create three files
+echo "Creating files..."
+echo "This is file3." > file3.txt
+echo "This is file1." > file1.txt
+echo "This is file2." > file2.txt
+echo "Files created."
+
+# Display the files in their current order
+echo "Files in their current order:"
+ls
+
+# Sort the files alphabetically
+echo "Sorting files alphabetically..."
+ls | sort > sorted_files.txt
+echo "Files sorted."
+
+# Display the sorted files
+echo "Sorted files:"
+cat sorted_files.txt
+
+# Remove the original files
+echo "Removing original files..."
+rm file1.txt file2.txt file3.txt
+echo "Original files removed."
+
+# Rename the sorted file to a more descriptive name
+echo "Renaming sorted file..."
+mv sorted_files.txt sorted_files_sorted_alphabetically.txt
+echo "File renamed."
+
+# Display the final sorted file
+echo "Final sorted file:"
+cat sorted_files_sorted_alphabetically.txt
+```
+
 ### step 3: 
 Set execute permission on sorting.sh using `sudo chmod +x sorting.sh`
 
@@ -205,6 +254,7 @@ create a file called calculations.sh using the command touch `calculations.sh`
 ### step 2:
 Copy and paste the code block below:
 
+```
 #!/bin/bash
 
 #Define two variables with numeric values
@@ -234,6 +284,7 @@ square_root=$(echo "sqrt($num2)" | bc)
 #Display the results
 echo "Number 1 raised to the power of 2: $power_of_2"
 echo "Square root of number 2: $square_root"
+```
 
 ### step 3: 
 Set execute permission on calculations.sh using the command: `sudo chmod +x calculations.sh`
@@ -254,6 +305,7 @@ Create a backup file on your terminal using the command touch backup.sh
 ### step 2:
 Copy and paste the code block below into the file.
 
+```
 #!/bin/bash
 
 #Define the source directory and backup directory
@@ -274,6 +326,7 @@ cp -r "$source_dir"/* "$backup_dir_with_timestamp"
 
 #Display a message indicating the backup process is complete
 echo "Backup completed. Files copied to: $backup_dir_with_timestamp"
+```
 
 ### step 3:
 Set executable permission on backup.sh using the command `sudo chmod +x backup.sh`
