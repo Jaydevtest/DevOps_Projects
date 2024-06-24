@@ -20,6 +20,7 @@ Example: Using if-else to execute script based on conditions
 Example: Script to check if a number is positive, negative, or zero
 
 `read -p "Enter a number: " num`
+  
   if [ $num -gt 0 ]; 
   then 
     echo "The number is positive"
@@ -27,7 +28,8 @@ Example: Script to check if a number is positive, negative, or zero
   then
     echo "The number is negative"
   else
-    echo "The number is zero."
+  echo "The number is zero."
+
 `fi`
 
 This code prompts you to type a number and prints a statement stating the number is positive, negative, or zero.
