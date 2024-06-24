@@ -15,22 +15,25 @@ Example: Retrieving value from a variable:
 Bash provides control flow statements like if-else, for loops, while loops, and case statements to control the flow of execution in your scripts. These statements allow you to make decisions, iterate over the lists, and execute different commands based on conditions.
 
 Example: Using if-else to execute script based on conditions
-`#!/bin/bash`
+
+#!/bin/bash
+
+# Example script to check if a number is positive, negative, or zero
+
+```
+read -p "Enter a number: " num
+
+if [ $num -gt 0 ]; then
+    echo "The number is positive."
+elif [ $num -lt 0 ]; then
+    echo "The number is negative."
+else
+    echo "The number is zero."
+fi
+```
 
 Example: Script to check if a number is positive, negative, or zero
 
-`read -p "Enter a number: " num`
-  
-  if [ $num -gt 0 ]; 
-  then 
-    echo "The number is positive"
-  elif [ $num -lt 0 ];
-  then
-    echo "The number is negative"
-  else
-  echo "The number is zero."
-
-`fi`
 
 This code prompts you to type a number and prints a statement stating the number is positive, negative, or zero.
 
