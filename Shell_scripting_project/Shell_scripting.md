@@ -6,6 +6,8 @@ Bash allows you to define and work with variables. Variables can store data of v
 Example: Assigning value to a variable:
 `name="John"`
 
+![value](Shell_scripting_Images/value.png)
+
 Example: Retrieving value from a variable:
 `echo $name`
 
