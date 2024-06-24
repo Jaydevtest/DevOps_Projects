@@ -1,4 +1,4 @@
-<img width="734" alt="image" src="https://github.com/Jaydevtest/DevOps_Projects/assets/152006795/77bbc2a8-6e0e-4bb9-9b1a-6efa8c1a4007"># Introduction to Shell Scripting an User Input
+# Introduction to Shell Scripting an User Input
 ## Shell Scripting Syntax Elements
 ### 1. Variables:
 Bash allows you to define and work with variables. Variables can store data of various types such as numbers, strings, and arrays. You can assign values to variables using the = operator, and access their values using the variable name preceded by a $ sign.
