@@ -14,7 +14,7 @@ Example: Retrieving value from a variable:
 ### 2. Control Flow: 
 Bash provides control flow statements like if-else, for loops, while loops, and case statements to control the flow of execution in your scripts. These statements allow you to make decisions, iterate over the lists, and execute different commands based on conditions.
 
-Example: Using if-else to execute script based on conditions
+Example: Using _if-else_ to execute script based on conditions
 
 ```
 #!/bin/bash
@@ -36,7 +36,7 @@ Example: Script to check if a number is positive, negative, or zero
 
 This code prompts you to type a number and prints a statement stating the number is positive, negative, or zero.
 
-Example: Iterating through a list using a for loop.
+Example: Iterating through a list using a _for loop_.
 
 ```
 #!/bin/bash
@@ -97,10 +97,10 @@ greet "John"
 ## First Shell Script
 
 ### step 1: 
-Open a folder called shell-scripting on your terminal using the command `mkdir-shell-scripting` command. This will hold all the scripts we will write in this lesson.
+Open a folder called _shell-scripting_ on your terminal using the command `mkdir-shell-scripting` command. This will hold all the scripts we will write in this lesson.
 
 ### step 2: 
-Create a file called user-input.sh using the command `touch user-input.sh`
+Create a file called _user-input.sh_ using the command `touch user-input.sh`
 
 ### step 3: 
 Inside the file copy and paste the block of code below:
@@ -134,7 +134,7 @@ This script will display the current directory, create a new directory called "m
 Steps below:
 
 ### step 1: 
-open a file named navigating-linux-system.sh
+open a file named _navigating-linux-system.sh_
 
 ### step 2:
 Paste the code block below into your file.
@@ -181,20 +181,20 @@ ls
 ```
 
 ### step 3:
-Run the command sudo chmod +x navigating-linux-filesystem.sh to execute permissing on the file
+Run the command `sudo chmod +x navigating-linux-filesystem.sh` to execute permission on the file
 
 ### step 4:
-Run your script using the command ./navigating-linux-filesystem.sh
+Run your script using the command `./navigating-linux-filesystem.sh`
 
 
 # File Operations and Sorting
 
-In this lesson, we will be writing a simple shell script that focuses on File Operations and Sortin.
+In this lesson, we will be writing a simple shell script that focuses on File Operations and sorting.
 
 This script creates three files (file1.txt, file2.txt, file3.txt), displays the files in their current order, sorts them alphabetically, saves the sorted files in sorted_files.txt, removes the original files, renames the sorted files to sorted_files_sorted_alphabetically.txt, and finally displays the content of the final sorted file.
 
 ### step 1: 
-Open your terminal and create a file called sorting.sh using the command `touch sorting.sh`
+Open your terminal and create a file called _sorting.sh_ using the command `touch sorting.sh`
 
 ### step 2: 
 Copy and paste the code block below into the file
@@ -238,7 +238,7 @@ cat sorted_files_sorted_alphabetically.txt
 ```
 
 ### step 3: 
-Set execute permission on sorting.sh using `sudo chmod +x sorting.sh`
+Set execute permission on _sorting.sh_ using `sudo chmod +x sorting.sh`
 
 ### step 4: 
 Run your script using the command `./sorting.sh`
@@ -249,7 +249,7 @@ Run your script using the command `./sorting.sh`
 This script defines two variables num1 and num2 with numeric values, performs basic arithmetic operations (addition, subtraction, multiplication, division, and modulus), and displays the results. It also performs more complex calculations such as raising num1 to the power of 2 and calculating the square root of num2, and displays the results as well.
 
 ### step 1:
-create a file called calculations.sh using the command touch `calculations.sh`
+create a file called _calculations.sh_ using the command touch `calculations.sh`
 
 ### step 2:
 Copy and paste the code block below:
@@ -287,7 +287,7 @@ echo "Square root of number 2: $square_root"
 ```
 
 ### step 3: 
-Set execute permission on calculations.sh using the command: `sudo chmod +x calculations.sh`
+Set execute permission on _calculations.sh_ using the command: `sudo chmod +x calculations.sh`
 
 ### step 4: 
 Run your script using this command `./calculations.sh`
@@ -300,7 +300,7 @@ This shell scripting example is focused on file backup and timestamp. As a DevOp
 This script defines the source directory and backup directory paths. It then creates a timestamp using the current date and time and a backup directory with the timestamp appended to its name. The script then copies all files from the source directory using the cp command with the -r option for recursive copying. Finally, it displays a message indicating the completion of the backup process and shows the path of the backup directory with the timestamp.
 
 ### step 1:
-Create a backup file on your terminal using the command touch backup.sh
+Create a backup file on your terminal using the command touch _backup.sh_
 
 ### step 2:
 Copy and paste the code block below into the file.
@@ -329,7 +329,7 @@ echo "Backup completed. Files copied to: $backup_dir_with_timestamp"
 ```
 
 ### step 3:
-Set executable permission on backup.sh using the command `sudo chmod +x backup.sh`
+Set executable permission on _backup.sh_ using the command `sudo chmod +x backup.sh`
 
 ### step 4:
 Run your script using the command: ./backup.sh
