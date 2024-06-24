@@ -16,11 +16,11 @@ Bash provides control flow statements like if-else, for loops, while loops, and 
 
 Example: Using if-else to execute script based on conditions
 
+```
 #!/bin/bash
 
 # Example script to check if a number is positive, negative, or zero
 
-```
 read -p "Enter a number: " num
 
 if [ $num -gt 0 ]; then
