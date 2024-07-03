@@ -69,18 +69,18 @@ Start by configuring the Apache webserver to serve content on port 8000 instead 
 - Configuring Apache to Server content on port 8000:
 
     1. Using your text editor, open the file /etc/apache2/ports.conf
- 
-    2. Add a new Listen directive for port 8000: First type I to switch the editor to insert mode. Then add the listen directive. Then save your file
+  
+    2. Add a new Listen directive for port 8000: First type I to switch the editor to insert mode. Then add the listen             directive. Then save your file
  
 ![Configure_Apache](Load_Balancing_Images/Listen_8000.png)
  
-    4. Open the file /etc/apache2/sites-available/000-default.cong and change port 80 on the virtual host to 8000
+    3. Open the file /etc/apache2/sites-available/000-default.cong and change port 80 on the virtual host to 8000
 
 ![Change_virtualhost_port](Load_Balancing_Images/virtualhost_8000.png)
- 
-    5. Close the file by pressing **esc** key on your keyboard and typing `:wqa!
- 
-    6. Restart Apache to load the new configuration using the command: `sudo systemctl restart apache2`
+    
+    4. Close the file by pressing **esc** key on your keyboard and typing `:wqa!
+    
+    5. Restart Apache to load the new configuration using the command: `sudo systemctl restart apache2`
 
 - Creating a new HTML file:
 
@@ -165,7 +165,7 @@ upstream backend_servers defines a group of backend servers. The server lines in
 
 - Paste the public IP address of Nginx load balancer, you should see the same webpages served by the webservers.
 
-![load_balancer_webpage](Load_Balancing_Images/load_balancer_webpage.png)
+![load_balancer_webpage](Load_Balancing_Images/load_balancer_web.png)
 
 
 
