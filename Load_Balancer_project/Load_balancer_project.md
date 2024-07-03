@@ -68,25 +68,25 @@ Start by configuring the Apache webserver to serve content on port 8000 instead 
 
 - Configuring Apache to Server content on port 8000:
 
-    1. Using your text editor, open the file /etc/apache2/ports.conf
+   1. Using your text editor, open the file /etc/apache2/ports.conf
   
-    2. Add a new Listen directive for port 8000: First type I to switch the editor to insert mode. Then add the listen             directive. Then save your file
+   2. Add a new Listen directive for port 8000: First type I to switch the editor to insert mode. Then add the listen             directive. Then save your file
  
 ![Configure_Apache](Load_Balancing_Images/Listen_8000.png)
  
-    3. Open the file /etc/apache2/sites-available/000-default.cong and change port 80 on the virtual host to 8000
+   3. Open the file /etc/apache2/sites-available/000-default.cong and change port 80 on the virtual host to 8000
 
 ![Change_virtualhost_port](Load_Balancing_Images/virtualhost_8000.png)
     
-    4. Close the file by pressing **esc** key on your keyboard and typing `:wqa!
+   4. Close the file by pressing **esc** key on your keyboard and typing `:wqa!
     
-    5. Restart Apache to load the new configuration using the command: `sudo systemctl restart apache2`
+   5. Restart Apache to load the new configuration using the command: `sudo systemctl restart apache2`
 
 - Creating a new HTML file:
 
-    1. Open a new index.html file with the command: `sudo vi index.html`
+   1. Open a new index.html file with the command: `sudo vi index.html`
  
-    2. Switch the vi editor to insert mode and paste the html file below. Before pasting the html file, get the public IP of your EC2 instance from AWS Management Console           and replace the placeholder text for IP address in the html file.
+   2. Switch the vi editor to insert mode and paste the html file below. Before pasting the html file, get the public IP of       your EC2 instance from AWS Management Console           and replace the placeholder text for IP address in the html         file.
 
 ```
         <!DOCTYPE html>
