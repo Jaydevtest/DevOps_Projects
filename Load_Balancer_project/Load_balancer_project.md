@@ -1,8 +1,8 @@
 # Setting Up a Basic Load Balancer
 
-In this project, I will provision two EC2 instances running Ubuntu 22.04 and install Apache webserver on them. I will then proceed to open port 8000 to allow traffic from anywhere, and finally update the default page of the webservers to display their public IP address.
+Start by provisioning two EC2 instances running Ubuntu 22.04 and installing Apache webserver on both. Then proceed to open port 8000 to allow traffic from anywhere, and finally update the default page of the webservers to display their public IP address.
 
-Next, I will provision another EC2 instance running Ubuntu 22.04, this time I will install NGINX and configure it to act as a load balancer distributing traffic across the webservers. 
+Next, provision another EC2 instance running Ubuntu 22.04, this time install NGINX and configure it to act as a load balancer distributing traffic across the webservers. 
 
 ### Step 1: Provisioning EC2 instances
 
@@ -17,9 +17,11 @@ Next, I will provision another EC2 instance running Ubuntu 22.04, this time I wi
 - Finally, Click on launch instance
 
 ### Step 2: Open port 8000
-I will run my webservers on port 8000 while the load balancer runs on port 80. I need to open port 8000 to allow traffic from anywhere. To do this, I need to add a rule to the security group of each of the webservers
+The webservers will run on port 8000 while the load balancer runs on port 80. Open port 8000 to allow traffic from anywhere. To do this, add a rule to the security group of each of the webservers
 
 - Click on the instance ID to get the details of your EC2 instance,
+
+![Instance_ID](Load_Balancing_Images/inbound_rule.png)
 
 - On the same page, scroll down and click on Security
 
@@ -27,24 +29,38 @@ I will run my webservers on port 8000 while the load balancer runs on port 80. I
 
 - Click on Actions and select Edit inbound rules
 
+![Edit_Inbound_Rule](Load_Balancing_Images/Security_actions.png)
+
 - Add your rules
 
 - Click on Save rules
+
+   ![Add_Inbound_rule](Load_Balancing_Images/Add_rule.png)
 
 ### Step 3: Install Apache Webserver
 After provisioning both servers and having opened the necessary ports, It's time to install Apache software on both servers. First, we must connect to each server via ssh. Then we can now run commands on the terminal of our webservers.
 
 - Connecting to the webserver: To connect to the webserver, click on your instance ID and click Connect at the top of the page
 
+![Instance_ID](Load_Balancing_Images/Connecting_to_instance.png)
+
+![Connecting_to_instance](Load_Balancing_Images/Connecting_to_instance1.png)
+
 - Copy the ssh command
 
 - Open a terminal on your local machine, cd into the folder containing the key pair, and paste the SSH command
+
+![Connecting_to_instance](Load_Balancing_Images/Connecting_to_instance2.png)
 
 - Click enter and type yes when prompted. You should now be connected to your server.
 
 - Install Apache with the command: `sudo apt update -y && sudo apt install apache2 -y`
 
+![Install_Apache](Load_Balancing_Images/install_apache.png)
+
 - Verify that Apache is running using the command: `sudo systemctl status apache2`
+
+![Apache_Status](Load_Balancing_Images/apache_status.png)
 
 ### Step 4: Configure Apache to serve a page showing its public IP:
 
@@ -56,11 +72,15 @@ Start by configuring the Apache webserver to serve content on port 8000 instead 
  
     2. Add a new Listen directive for port 8000: First type I to switch the editor to insert mode. Then add the listen directive. Then save your file
  
-    3. Open the file /etc/apache2/sites-available/000-default.cong and change port 80 on the virtual host to 8000
+![Configure_Apache](Load_Balancing_Images/Listen_8000.png)
  
-    4. Close the file by pressing **esc** key on your keyboard and typing `:wqa!
+    4. Open the file /etc/apache2/sites-available/000-default.cong and change port 80 on the virtual host to 8000
+
+![Change_virtualhost_port](Load_Balancing_Images/virtualhost_8000.png)
  
-    5. Restart Apache to load the new configuration using the command: `sudo systemctl restart apache2`
+    5. Close the file by pressing **esc** key on your keyboard and typing `:wqa!
+ 
+    6. Restart Apache to load the new configuration using the command: `sudo systemctl restart apache2`
 
 - Creating a new HTML file:
 
@@ -81,7 +101,9 @@ Start by configuring the Apache webserver to serve content on port 8000 instead 
         </html>
 ```
 
-    3. Change the file ownership of the **index.html** file with the command: `sudo chown www-data:www-data ./index.html`
+![Create_new_html](Load_Balancing_Images/index_html.png)
+
+3. Change the file ownership of the **index.html** file with the command: `sudo chown www-data:www-data ./index.html`
 
 - Overriding the Default html file of Apache Webserber
    
@@ -91,6 +113,8 @@ Start by configuring the Apache webserver to serve content on port 8000 instead 
  
     3. You should have a web page showing:
  
+![Web_page](Load_Balancing_Images/web_page.png)
+ 
 ### Step 5: Configuring NGINX as a Load Balancer
 
 - Provision a new EC2 instance running on Ubuntu 22.04. Make sure port 80 is opened to accept traffic from anywhere.
@@ -99,7 +123,11 @@ Start by configuring the Apache webserver to serve content on port 8000 instead 
 
 - Install Nginx into the instance using the command: `sudo apt update -y && sudo apt install nginx -y`
 
+![Install_nginx](Load_Balancing_Images/install_nginx.png)
+
 - Verify that Nginx is installed with the command: `sudo systemctl status nginx`
+
+  ![verify_nginx](Load_Balancing_Images/nginx_status.png)
 
 - Open Nginx configuration file with the command: `sudo vi /etc/nginx/conf.d/loadbalancer.conf`
 
@@ -127,13 +155,17 @@ Start by configuring the Apache webserver to serve content on port 8000 instead 
         }
   ```
 
-  upstream backend_servers defines a group of backend servers. The server lines inside the upstream block list the addresses and ports of your backend servers. Proxy_pass     inside the location block sets up the load balancing, passing the requests to the backend servers. The proxy_set_header lines pass necessary headers to the backend          servers to correctly handle the requests.
+![configure_nginx](Load_Balancing_Images/nginx_conf.png)
+
+upstream backend_servers defines a group of backend servers. The server lines inside the upstream block list the addresses and ports of your backend servers. Proxy_pass     inside the location block sets up the load balancing, passing the requests to the backend servers. The proxy_set_header lines pass necessary headers to the backend          servers to correctly handle the requests.
 
 - Test your configuration with the command: `sudo nginx -t`
 
 - If there are no errors, restart Nginx to load the new configuration with the command: `sudo systemctl restart nginx`
 
 - Paste the public IP address of Nginx load balancer, you should see the same webpages served by the webservers.
+
+![load_balancer_webpage](Load_Balancing_Images/load_balancer_webpage.png)
 
 
 
