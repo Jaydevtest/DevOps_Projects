@@ -88,7 +88,7 @@ Start by configuring the Apache webserver to serve content on port 8000 instead 
  
    2. Switch the vi editor to insert mode and paste the html file below. Before pasting the html file, get the public IP of       your EC2 instance from AWS Management Console           and replace the placeholder text for IP address in the html         file.
 
-   ```
+      ```
         <!DOCTYPE html>
         <html>
         <head>
@@ -99,7 +99,7 @@ Start by configuring the Apache webserver to serve content on port 8000 instead 
             <p>Public IP: YOUR_PUBLIC_IP</p>
         </body>
         </html>
-```
+   ```
 
 ![Create_new_html](Load_Balancing_Images/index_html.png)
 
