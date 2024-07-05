@@ -22,6 +22,10 @@
 
 - Use `gdisk` utility to create a single partition on each of the 3 disks
 
+`sudo gdisk /dev/xvdf`
+
+enter n when the command is prompted to create new partition, click enter for all default options and enter w to write new partition when command is prompted again. 
+
 ![Partition_disks](Wordpress_Images/partition_disk.png)
 
 - Use `lsblk` to view the newly configured partitions on each of the 3 disks
@@ -187,7 +191,7 @@ Verify that the service is up and running by using `sudo systemctl status mysqld
 
 `sudo systemctl restart mysqld`
 
-sudo systemctl enable mysqld`
+`sudo systemctl enable mysqld`
 
 ### Step 5: Configure DB to work with WordPress
 
@@ -209,17 +213,25 @@ Hint: Do not forget to open MySQL port 3306 on DB Server EC2. For extra security
 
 `sudo yum install mysql`
 
-`sudo mysql -u admin -p -h <DB-server-private-IP-address>
+`sudo mysql -u admin -p -h <DB-server-private-IP-address>`
 
 - Verify if you can successfully execute SHOW DATABASES; command and see a list of existing databases.
 
-- Change permissions ans configurations so Apache could use Wordpress:
+![Connect_to_mysql_database](Wordpress_Images/connect_mysqldatabase.png)
+
+- edit /var/www/html/wp-config.php directory to connect to database:
+
+![Edit_wordpress_config](Wordpress_Images/edit_wp_config.png)
 
 - Enable TCP port 80 in Inbound Rules configuration for your Web server EC2 (enable from everywhere 0.0.0.0/0 or from your workstation's IP)
 
 - Try to access from your browser the link to your Wordpress HTTP://<Web-Server-Public-IP-address>/wordpress/
 
+![Wordpress_webpage](Wordpress_Images/wordpress_web.png)
+
 Fill out your DB credentials:
+
+![Wordpress_webpage](Wordpress_Images/wordpress_web1.png)
 
 
 
