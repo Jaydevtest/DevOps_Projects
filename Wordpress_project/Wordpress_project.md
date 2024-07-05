@@ -42,7 +42,7 @@ enter n when the command is prompted to create new partition, click enter for al
 
 - Use the command `sudo pvcreate /dev/xvdf1` utility to mark each of the 3 disks as physical volumes PVs to be used by LVM
 
-![Mark_disks](Wordpress_Images/mark_disk1.png)
+![Mark_disks](Wordpress_Images/mark_disks.png)
 
 - Verify that your physical volumes have been created by running `sudo pvs`
 
