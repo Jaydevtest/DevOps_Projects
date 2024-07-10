@@ -218,14 +218,38 @@ Note 1: do not forget to open TCP port 80 on the web servers
 
 Note 2: If you encounter 403 Error - check permissions on your /var/www/html folder and also disable SELinuz `sudo setenforce 0`, To make this change permanent - open following config file `sudo vi /etc/sysconfig/selinux` and set SELINUX=disabled, then restart httpd
 
+
+
 10. Update the website's configuration to connect to the database (in /var/www/html/functions.php file). Apply tooling-db.sql script to your database using the command: `mysql -h` <database-private-ip> -u <db-username> -p <db-password> <tooling-db.sql`
 
-11. create in MySQL a new admin user with username : myuser and password: password
+![Update_web_configuration](DevOps_Tooling_Images/update_web_config.png)
 
-INSERT INTO 'users' ('id', 'username', 'password', 'email', 'user_type', 'status') VALUES
--> (1, 'myuser', '5f4dcc3b5aa765d61d8327deb882cf99', 'user@mail.com', 'admin', '1');
+11. create a new admin by applying tooling-db.sql script from (tooling-repo directory) to your database using the command:
+
+`mysql -h <databse-private-ip> -u <db-username> -p <database> < tooling-db.sql`
+
+![Create_admin](DevOps_Tooling_Images/create_admin.png)
+
+
+To check for the created admin in the database we run the commands
+
+```
+$ sudo mysql -p
+
+mysql> use tooling;
+
+mysql> show tables;
+
+mysql> select from * users;
+```
+
+![Check_mysql](DevOps_Tooling_Images/check_mysql.png)
 
 12. Open the website in your browser HTTP;//<web-server-public-IP-address-or-Public-DNS-Name>/index.php and make sure you can login into the website with myuser user.
+
+![web](DevOps_Tooling_Images/web.png)
+
+![web](DevOps_Tooling_Images/web1.png)
 
 
 
