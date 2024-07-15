@@ -89,9 +89,9 @@ In this part, you will learn how to configure a simple Jenkins job/project (thes
 
 2. Go to Jenkins web console, click "New Item" and create a "Freestyle project"
 
-![Freestyle_project](Project_9_Images/New_item.png)
+![Freestyle_project](Project_9_Images/new_item.png)
 
-[Freestyle_project](Project_9_Images/New_item1.png)
+[Freestyle_project](Project_9_Images/new_item1.png)
 
 To connect your GitHub repository, you will need to provide its URL, you can copy from the repository itself
 
@@ -99,18 +99,18 @@ To connect your GitHub repository, you will need to provide its URL, you can cop
 
 In configuration of your Jenkins freestyle project choose Git repository, provide there the link to your Tooling GitHub repository and credentials (user/password) so Jenkins could access files in the repository.
 
-![Freestyle_project](Project_9_Images/New_item2.png)
+![Freestyle_project](Project_9_Images/new_item2.png)
 
 Save the configuration and let us try to run the build. For now we can only do it manually.
 Click "Build Now" button, if you have configured everything correctly, the build will be successfull and you will see it under #1
 
-![Freestyle_project](Project_9_Images/New_item3.png)
+![Freestyle_project](Project_9_Images/new_item3.png)
 
-![Freestyle_project](Project_9_Images/New_item4.png)
+![Freestyle_project](Project_9_Images/new_item4.png)
 
 You can open the build and check in "Console Output" if it has run successfully.
 
-![Freestyle_project](Project_9_Images/New_item5.png)
+![Freestyle_project](Project_9_Images/new_item5.png)
 
 If so - congratulations! You have just made your very first Jenkins build!
 
