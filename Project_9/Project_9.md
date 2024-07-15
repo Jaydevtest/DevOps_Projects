@@ -10,8 +10,9 @@ According to Circle CI, Continuous integration (CI) is a software development st
 
 In our project, we are going to utilize Jenkins CI capabilities to make sure that every change made to the source code in GitHub https://github.com/<yourname>/tooling will be automatically updated to the Tooling Website.
 
-Side Self Study
-Read about Continuous Integration, Continuous Delivery, and Continuous Deployment.
+Our 3 tier architecture will look like this
+
+![3-tier-architecture](Project_9_Images/architecture.png)
 
 ## Task
 Enhance the architecture prepared in Project 8 by adding a Jenkins server, configure a job to automatically deploy source codes changes from Git to NFS server.
@@ -28,6 +29,8 @@ sudo apt install openjdk-11-jre
 #Confirm Java installation
 java -version
 ```
+
+![Install_Java](Project_9_Images/java_version.png)
 
 3. Install Jenkins
 
@@ -47,12 +50,16 @@ Make sure Jenkins is up and running
 
 `sudo systemctl status jenkins`
 
+[Install_Jenkins](Project_9_Images/jenkins_status.png)
+
 
 4. By default Jenkins server uses TCP port 8080 - open it by creating a new Inbound Rule in your EC2 Security Group
 
 5. Perform initial Jenkins setup.
 
 From your browser access http://<Jenkins-Server-Public-IP-address-or-Public-DNS-Name>:8080
+
+[Install_Jenkins](Project_9_Images/jenkins_web.png)
 
 You will be prompted to provide a default admin password
 
@@ -62,9 +69,13 @@ Retrieve it from your server:
 
 Then you will be asked which plugings to install - choose suggested plugins.
 
+[Install_Jenkins](Project_9_Images/jenkins_web1.png)
+
 Once plugins installation is done - create an admin user and you will get your Jenkins server address.
 
 The installation is completed!
+
+[Install_Jenkins](Project_9_Images/jenkins_web2.png)
 
 ### Step 2 - Configure Jenkins to retrieve source codes from GitHub using Webhooks
 
@@ -72,16 +83,34 @@ In this part, you will learn how to configure a simple Jenkins job/project (thes
 
 1. Enable webhooks in your GitHub repository settings
 
+[Configure_Webhook](Project_9_Images/webhook.png)
+
+[Configure_Webhook](Project_9_Images/webhook1.png)
+
 2. Go to Jenkins web console, click "New Item" and create a "Freestyle project"
+
+[Freestyle_project](Project_9_Images/New_item.png)
+
+[Freestyle_project](Project_9_Images/New_item1.png)
 
 To connect your GitHub repository, you will need to provide its URL, you can copy from the repository itself
 
+[Github_link](Project_9_Images/github.png)
+
 In configuration of your Jenkins freestyle project choose Git repository, provide there the link to your Tooling GitHub repository and credentials (user/password) so Jenkins could access files in the repository.
+
+[Freestyle_project](Project_9_Images/New_item2.png)
 
 Save the configuration and let us try to run the build. For now we can only do it manually.
 Click "Build Now" button, if you have configured everything correctly, the build will be successfull and you will see it under #1
 
+[Freestyle_project](Project_9_Images/New_item3.png)
+
+[Freestyle_project](Project_9_Images/New_item4.png)
+
 You can open the build and check in "Console Output" if it has run successfully.
+
+[Freestyle_project](Project_9_Images/New_item5.png)
 
 If so - congratulations! You have just made your very first Jenkins build!
 
@@ -93,15 +122,29 @@ Configure triggering the job from GitHub webhook:
 
 Configure "Post-build Actions" to archive all the files - files resulted from a build are called "artifacts".
 
+[Freestyle_project](Project_9_Images/configure.png)
+
+[Freestyle_project](Project_9_Images/configure1.png)
+
+[Freestyle_project](Project_9_Images/configure2.png)
+
+[Freestyle_project](Project_9_Images/configure3.png)
+
 Now, go ahead and make some change in any file in your GitHub repository (e.g. README.MD file) and push the changes to the master branch.
 
 You will see that a new build has been launched automatically (by webhook) and you can see its results - artifacts, saved on Jenkins server.
+
+[Freestyle_project](Project_9_Images/build.png)
+
+[Freestyle_project](Project_9_Images/build1.png)
 
 You have now configured an automated Jenkins job that receives files from GitHub by webhook trigger (this method is considered as 'push' because the changes are being 'pushed' and files transfer is initiated by GitHub). There are also other methods: trigger one job (downstreadm) from another (upstream), poll GitHub periodically and others.
 
 By default, the artifacts are stored on Jenkins server locally
 
 `ls /var/lib/jenkins/jobs/tooling_github/builds/<build_number>/archive/`
+
+[Freestyle_project](Project_9_Images/terminal_artifact.png)
 
 ### Step 3 - Configure Jenkins to copy files to NFS server via SSH
 
@@ -131,25 +174,47 @@ Scroll down to Publish over SSH plugin configuration section and configure it to
 
 - Remote directory - /mnt/apps since our Web Servers use it as a mointing point to retrieve files from the NFS server
 
+[Freestyle_project](Project_9_Images/ssh_config.png)
+
 Test the configuration and make sure the connection returns Success. Remember, that TCP port 22 on NFS server must be open to receive SSH connections.
 
 Save the configuration, open your Jenkins job/project configuration page and add another one "Post-build Action"
 
-Configure it to send all files probuced by the build into our previouslys define remote directory. In our case we want to copy all files and directories - so we use **.
+Configure it to send all files produced by the build into our previously define remote directory. In our case we want to copy all files and directories - so we use **.
+
+[Freestyle_project](Project_9_Images/configure4.png)
 
 If you want to apply some particular pattern to define which files to send - use this syntax.
 
 Save this configuration and go ahead, change something in README.MD file in your GitHub Tooling repository.
 
+[Freestyle_project](Project_9_Images/configure5.png)
+
+I got unstable builds: This was solved by changing ownership and permission to the remote directory
+
+```
+sudo chmod 777 /mnt/apps
+sudo chown nobody:nobody /mnt/apps
+sudo -R chmod 777 /mnt
+sudo chown -R nobody:nobody /mnt
+```
+
+[Freestyle_project](Project_9_Images/success.png)
+
 Webhook will trigger a new job and in the "Console Output" of the job you will find something like this:
+
 ```
 SSH: Transferred 25 file(s)
 Finished: SUCCESS
 ```
 
-To make sure that the files in /mnt/apps have been udated - connect via SSH/Putty to your NFS server and check README.MD file
+[Freestyle_project](Project_9_Images/success1.png)
+
+To make sure that the files in /mnt/apps have been updated - connect via SSH/Putty to your NFS server and check README.MD file
 
 `cat /mnt/apps/README.md`
+
+[Freestyle_project](Project_9_Images/success2.png)
 
 If you see the changes you had previously made in your GitHub - the job works as expected.
 
