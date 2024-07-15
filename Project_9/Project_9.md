@@ -91,7 +91,7 @@ In this part, you will learn how to configure a simple Jenkins job/project (thes
 
 ![Freestyle_project](Project_9_Images/new_item.png)
 
-[Freestyle_project](Project_9_Images/new_item1.png)
+![Freestyle_project](Project_9_Images/new_item1.png)
 
 To connect your GitHub repository, you will need to provide its URL, you can copy from the repository itself
 
