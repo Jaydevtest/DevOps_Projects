@@ -54,19 +54,19 @@ subnet-private2b  us-east-1b  10.0.2.0/24
 
 Go to VPC>Subnets>Create Subnets and select the VPC that you just created
 
-![Subnet](Project_14_Images/create_subnets.png)
+![Subnet](Project_14_Images/create-subnets.png)
 
 Click on Create Subnet
 
-![Subnet](Project_14_Images/create_subnets1.png)
+![Subnet](Project_14_Images/create-subnets1.png)
 
 Enter the subnet setting details.
 
-![Subnet](Project_14_Images/create_subnets2.png)
+![Subnet](Project_14_Images/create-subnets2.png)
 
 Once done, you should see all the subnets you just created on the console. As of now, you can deploy EC2 instances into the VPC by selecting on of the subnets, but the public subnets don't have any internet access at this stage. When you select a public subnet>route, you'll see it uses the main route table and only has the local route, no default route for internet access
 
-![Subnet](Project_14_Images/create_subnets3.png)
+![Subnet](Project_14_Images/create-subnets3.png)
 
 ## Understanding Public and Private Subnets in AWS VPC
 
