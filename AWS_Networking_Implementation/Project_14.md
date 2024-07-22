@@ -188,7 +188,7 @@ first-vpc-private-rtb: A route table with a target to NAT gateway is a private r
 
 - Also create the route table for the private but subnets and routes should not be attached yet
 
-![Route_table](Project_14_Images/create_route-table2.png)
+![Route_table](Project_14_Images/create_route_table2.png)
 
 ## NAT Gateway and Private Subnets
 
