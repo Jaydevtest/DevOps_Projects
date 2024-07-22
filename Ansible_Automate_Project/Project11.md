@@ -10,6 +10,8 @@ A Jump Server(Bastion Host) is an intermediary server through which access to th
 
 In the diagram below, the Virtual Private Network (VPC) is divided into two subnets – Public subnet has public IP addresses and Private subnet is only reachable by private IP addresses.
 
+![Architecture](Project_11_Images/architecture.png)
+
 We will be performing the following tasks:
 
 - Install and configure Ansible client to act as a jump server/Bastion Host.
@@ -22,25 +24,35 @@ We will update the **Name tag** on our **Jenkins EC2 Instance** to **Jenkins-Ans
 
 In the GitHub account, we create a new repository and name it ansible-config-mgt.
 
-Update the repository and Install Ansible
-
-`sudo apt update -y && sudo apt install ansible`
+![New_Repo](Project_11_Images/new_repo.png)
 
 Update the repository and Install Ansible
 
 `sudo apt update -y && sudo apt install ansible`
+
+Update the repository and Install Ansible
+
+`sudo apt update -y && sudo apt install ansible`
+
+![Install_Ansible](Project_11_Images/ansible_version.png)
 
 Configure Jenkins build job to save your repository content every time there is an edit. Go to "configure" and edit the following:
 
 Create a new Freestyle project ansible in Jenkins and point it to your ‘ansible-config-mgt’ repository.
 
+![Freestyle_project](Project_11_Images/new_job.png)
+
 Configure the "ansible-config-mgt" to connect to Jenkins through webhook to trigger a build automatically. In the "ansible-config-mgt" repository, we click on settings. Click on "webhook"-Then click on "add webhook".
+
+![Freestyle_project](Project_11_Images/webhook.png)
 
 In the "project URL", put in the Jenkins IP address and select "application/json" in the "content-type".
 
 `<jenkins-IP-address>:8080/github-webhook/`
 
 Then click on "add webhook".
+
+![Freestyle_project](Project_11_Images/webhook.png)
 
 Save the configuration and run "build now" to connect jenkins to our repository
 
@@ -49,6 +61,8 @@ Click "Configure" your job and add these two configurations
 Configure triggering the job from GitHub webhook and Configure "Post-build Actions" to archive all the files.
 
 click on add post-build actions and click "Archive the Artifact" then save
+
+![Freestyle_project](Project_11_Images/configure.png)
 
 Now, go ahead and make some changes in any file in your GitHub repository (e.g. README.MD file) and push the changes to the master branch.
 
@@ -117,6 +131,8 @@ ii. Paste the below information
 images
 ```
 
+![Ansible_configuration](Project_11_Images/ansible.png)
+
 ### Step 6: - Create a Common Playbook
 
 It is time to start giving Ansible the instructions on what you need to be performed on all servers listed in inventory/dev.
@@ -158,6 +174,7 @@ Feel free to update this playbook with following tasks:
 Create a directory and a file inside it Change timezone on all servers Run some shell script
 
 ### Step 7: - Update GIT with the latest code
+
 Now all of your directories and files live on your machine and you need to push changes made locally to GitHub.
 
 In the real world, you will be working within a team of other DevOps engineers and developers. It is important to learn how to collaborate with help of GIT. In many organisations there is a development rule that do not allow to deploy any code before it has been reviewed by an extra pair of eyes - it is also called "Four eyes principle".
@@ -183,9 +200,10 @@ If the reviewer is happy with your new feature development, merge the code to th
 
 Once your code changes appear in master branch - Jenkins will do its job and save all the files (build artifacts) to /var/lib/jenkins/jobs/ansible/builds/<build_number>/archive/ directory on Jenkins-Ansible server as we configured it to in Step 2
 
-jenkins
+![Ansible_configuration](Project_11_Images/ansible1.png)
 
 ### Step 8: - Run first Ansible test
+
 Now, it is time to execute ansible-playbook command and verify if your playbook works:
 
 Setup your VSCode to connect to your instance as demonstrated by the video above. Now run your playbook using the command:
@@ -193,26 +211,29 @@ Setup your VSCode to connect to your instance as demonstrated by the video above
 `cd ansible-config-mgt`
 
 ansible-playbook -i inventory/dev.yml playbooks/common.yml
-ansible
+
+![Ansible_configuration](Project_11_Images/ansible2.png)
 
 Note: Make sure you're in your ansible-config-mgt directory before you run the above command.
 
 You can go to each of the servers and check if wireshark has been installed by running which wireshark or wireshark --version
 
-wireshark
+![Ansible_configuration](Project_11_Images/ansible3.png)
 
 Our architecture should look like this
 
 final architecture
 
-Side Study
+![Architecture](Project_11_Images/architecture1.png)
+
+## Side Study
 Learners should look into Ansible Modules to deepen knowledge of ansible playbooks. Ansible Modules are the building blocks of Ansible playbooks, and understanding them is fundamental to working effectively with Ansible.
 
-Real Life Scenarios Using Ansible
+## Real Life Scenarios Using Ansible
 
 In a DevOps scenario, you want to implement a CI/CD pipeline for your project. Ansible can play a crucial role in this process. You can use Ansible to automate the provisioning and configuration of testing and production environments. This ensures that your CI/CD pipeline is reliable and reproducible, allowing you to deliver software updates to your users with confidence.
 
-Conclusion
+## Conclusion
 
 Ansible Automation is a powerful tool that can simplify and streamline various aspects of IT and infrastructure management. This project also covered jenkin for integration. By learning Ansible and Jenkins, you can automate tasks, reduce manual errors, and ensure consistency in your operations. Key takeaways from this project include: Understanding the fundamentals of Ansible and its use cases. Proficiency in writing Ansible playbooks to automate tasks. The ability to apply Ansible in scenarios such as server configuration, application deployment, and CI/CD pipelines.
 
