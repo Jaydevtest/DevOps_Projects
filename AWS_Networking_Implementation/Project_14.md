@@ -140,7 +140,7 @@ Attach the IGW to the VPC you created
 
 ![Internet_Gateway](Project_14_Images/create_ig2.png)
 
-![Internet_Gateway](Project_14_Images/attach_ig.png)
+![Internet_Gateway](Project_14_Images/attach-ig.png)
 
 We want the private subnets to be private, we don't want the private subnets to have a default route to the Internet. For that, we'll need to create a separate route table for the public subnets.
 
